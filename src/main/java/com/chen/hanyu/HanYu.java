@@ -1,7 +1,5 @@
 package com.chen.hanyu;
 
-import static org.hamcrest.CoreMatchers.containsString;
-
 import org.apache.commons.lang3.StringUtils;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
