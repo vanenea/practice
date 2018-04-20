@@ -25,7 +25,6 @@ public class AboutCookies {
 	public static void main(String[] args) {
 		HttpClient client = HttpClientBuilder.create().build(); 
 		HttpClientContext context = HttpClientContext.create();
-		
 		HttpPost post = new HttpPost("http://localhost:8080/cp/admin1/admin.do");
 		post.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36");
 		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
