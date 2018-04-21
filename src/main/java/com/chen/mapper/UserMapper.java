@@ -23,4 +23,5 @@ public interface UserMapper {
 	 * @return
 	 */
 	List<User> findAll();
+	
 }
