@@ -52,4 +52,12 @@ public class UserController {
 		System.out.println(userMapper);
 	//	System.out.println(userMapper.findAll());
 	}
+	
+	@RequestMapping("/showUser")
+	@ResponseBody
+	public String showUser() {
+		User user = new User();
+		user.setId(1);
+		return userService.showUser(user).toString();
+	}
 }

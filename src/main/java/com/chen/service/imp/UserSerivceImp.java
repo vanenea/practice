@@ -1,5 +1,7 @@
 package com.chen.service.imp;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +24,11 @@ public class UserSerivceImp implements IUserService {
 	@Override
 	public Integer insertUser(User user) {
 		return userMapper.insertUser(user);
+	}
+
+	@Override
+	public List<User> showUser(User user) {
+		return userMapper.showUser(user);
 	}
 
 }
