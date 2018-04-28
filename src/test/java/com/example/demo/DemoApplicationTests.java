@@ -6,6 +6,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.google.gson.Gson;
+
+import net.sf.json.JSONObject;
+
 @SpringBootTest
 public class DemoApplicationTests {
 	private char[] _UU64 = "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz".toCharArray();
@@ -31,4 +35,15 @@ public class DemoApplicationTests {
 		
 	}
 	
+
+	public static void main(String[] args) {
+		String str = "{page:\"Page\"}";
+		Gson gson = new Gson();
+		String str1 = gson.toJson(str);
+		System.out.println(str1);
+		JSONObject json = JSONObject.fromObject(str);
+		System.out.println(json);
+		
+		
+	}
 }
