@@ -1,14 +1,18 @@
 package com.chen.practice;
 
-import java.awt.List;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Random;
+import java.util.Stack;
 
 public class PriorityQu {
 	public static void main(String[] args) {
+		Map map;
+		Collection collection;
+		Stack<String> stack;
 		Random random = new Random(47);
 		PriorityQueue<String> priority = new PriorityQueue<>(Collections.reverseOrder());
 		priority.offer("today");
