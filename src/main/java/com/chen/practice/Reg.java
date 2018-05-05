@@ -9,7 +9,6 @@ enum Test{
 
 public class Reg {
 	Test test;
-	
 	public Reg(Test test) {
 		this.test = test;
 	}
