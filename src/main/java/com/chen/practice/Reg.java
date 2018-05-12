@@ -21,12 +21,17 @@ public class Reg {
 		/*Pattern pa = Pattern.compile(".*[^(mp4) | ^(mp3)]+");
 		Matcher ma = pa.matcher("sdfdsfwemp345");
 		System.out.println(ma.matches());*/
-		System.out.println(new Reg(Test.GOOD));
+		/*System.out.println(new Reg(Test.GOOD));
 		System.out.println(new Reg(Test.MORNING));
 		
 		String[] str = splitSentence("【华夕网络11.11双十一优惠大酬宾，低价建站，速来围观】上海网站建设 - 上海华夕网络科技有限公司");
 		for (String string : str) {
 			System.out.println(string);
+		}*/
+		
+		Matcher matcher = java.util.regex.Pattern.compile("\\w").matcher("51561wewe15611fg");
+		if(matcher.lookingAt()) {
+			System.out.println(matcher.start()+","+matcher.end());
 		}
 	}
 	
