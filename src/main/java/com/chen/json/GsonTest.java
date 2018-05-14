@@ -1,4 +1,4 @@
-package com.chen.gson;
+package com.chen.json;
 
 import com.chen.domain.User;
 import com.google.gson.Gson;
