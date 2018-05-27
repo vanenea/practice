@@ -27,6 +27,7 @@ public class Holding implements Iterable<String>{
 		for(String str : new Holding()) {
 			System.out.print(str+" ");
 		}
+
 	}
 }
 
