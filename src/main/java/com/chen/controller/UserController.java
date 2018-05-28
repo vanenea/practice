@@ -46,12 +46,12 @@ public class UserController {
 		System.out.println("插入数据");
 		return userService.insertUser(user);
 	}
-	
-	static {
+	/*static {
 		System.out.println("static>>>>>>>");
 		System.out.println(userMapper);
 	//	System.out.println(userMapper.findAll());
-	}
+	}*/
+
 	
 	@RequestMapping("/showUser")
 	@ResponseBody
