@@ -20,14 +20,14 @@ public class MyConfiguration  {
 		return new HttpMessageConverters(additional, another);
 	}*/
 	
-	 @Bean(name = "dataSource")
+	/* @Bean(name = "dataSource")
 	 @Qualifier(value = "dataSource")
 	 @Primary
 	 @ConfigurationProperties(prefix = "spring.datasource.dbcp2")
 	 public DataSource dataSource(){
 		 return DataSourceBuilder.create().type(org.apache.commons.dbcp2.BasicDataSource.class).build();
 	 }
-	 
+	 */
 	 
 	 
 }
