@@ -3,10 +3,14 @@ package com.chen.controller;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
+import javax.jms.Destination;
 
+import com.chen.activemq.Producer;
+import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,7 +21,10 @@ public class Test {
 
 	@Autowired
 	private PropertiesConfig propertiesConfig;
-	
+
+	@Autowired
+	private Producer producer;
+
 	@Resource
 	private RedisTemplate<String, Object> redisTemplate;
 	
@@ -36,6 +43,15 @@ public class Test {
 		System.out.println("reids:"+va.get("name"));
 		System.out.println(str);
 	}
-	
-	
+
+	@RequestMapping("/mq")
+	@ResponseBody
+	public void activeMqTest(){
+		Destination destination = new ActiveMQQueue("test.queque");
+		for (int i = 0; i < 10; i++) {
+			producer.send(destination,"HelloWorld");
+
+		}
+	}
+
 }

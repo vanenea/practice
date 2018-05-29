@@ -13,25 +13,11 @@ import com.chen.service.IUserService;
 
 @Controller
 public class UserController {
-	
-	private static IUserService userService;
-	
-	public static IUserService getUserService() {
-		return userService;
-	}
-	@Resource
-	public void setUserService(IUserService userService) {
-		UserController.userService = userService;
-	}
-
 	@Autowired
-	private static UserMapper userMapper;
+	private IUserService userService;
 	
-	
-	
-	public void setUserMapper(UserMapper userMapper) {
-		UserController.userMapper = userMapper;
-	}
+	@Autowired
+	private UserMapper userMapper;
 	
 	@RequestMapping("/user")
 	@ResponseBody
