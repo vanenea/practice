@@ -10,6 +10,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * spring Mail
+ */
 public class SpringMailDemo {
 
     public static JavaMailSender mailSender;
