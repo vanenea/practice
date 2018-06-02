@@ -33,9 +33,10 @@ public class SpringMailDemo {
     public void sendMail(){
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom("vanenea@163.com");
+        mailMessage.setTo("576700973@qq.com");
         mailMessage.setText("我是谁，我来自哪里？");
         mailMessage.setSubject("subject");
-        mailSender.send(mailMessage);
+        System.out.println("mailSender:"+mailSender+", mailMessage"+ mailMessage);
         mailSender.send(mailMessage);
     }
 
@@ -48,7 +49,7 @@ public class SpringMailDemo {
         System.out.println("mailSender:"+mailSender);
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);//构造消息helper，第二个参数表明这个消息是multipart类型的
-        helper.setFrom("testFrom@163.com");
+        helper.setFrom("vanenea@163.com");
         helper.setTo("576700973@qq.com");
         helper.setSubject("Spring Email Test");
         helper.setText("这是一个带有附件的消息");
