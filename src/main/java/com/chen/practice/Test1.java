@@ -1,14 +1,15 @@
 package com.chen.practice;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
+import java.sql.Date;
+import java.util.*;
 
 public class Test1 {
 
     public static void main(String[] args) {
         try {
+            String a = new String("abc");
+            String b = new String("abc");
+            System.out.println(a==b);
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root");
             String sql = "select now() from dual";
