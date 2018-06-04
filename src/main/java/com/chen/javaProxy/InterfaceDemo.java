@@ -1,6 +1,6 @@
 package com.chen.javaProxy;
 
-public interface InterfaceDemo {
+public interface InterfaceDemo  {
 
     void sayHello();
 
