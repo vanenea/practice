@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ###HelloWorld
 
 about practice
@@ -6,8 +5,10 @@ about practice
 website
 
 # created world
-=======
 ###HelloWorld
 
 about practice
->>>>>>> refs/remotes/origin/master
+
+`public static void main(){`
+
+    `test`
