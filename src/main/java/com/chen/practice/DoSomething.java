@@ -1,5 +1,7 @@
 package com.chen.practice;
 
+import java.util.regex.Pattern;
+
 public class DoSomething {
 
 	public enum Company{
@@ -12,5 +14,9 @@ public class DoSomething {
 		for (Company company2 : company) {
 			company2.action();
 		}
+		
+		Pattern pa = Pattern.compile("\\d+");
+		System.out.println(pa.matcher("52").matches());
+		System.out.println(Float.isNaN(Integer.parseInt("123")));
 	}
 }
