@@ -28,6 +28,7 @@ public class AlibabaJson {
         map.put("code","111111");
         map.put("data",userList);
         JSONObject jo = new JSONObject();
+        JSONObject jo1 = new JSONObject();
         jo.putAll(map);
         System.out.println("jo:"+jo.toJSONString());
 
