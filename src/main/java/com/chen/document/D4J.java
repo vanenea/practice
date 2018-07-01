@@ -15,7 +15,6 @@ public class D4J {
         Document document = DocumentHelper.createDocument();
         document.setXMLEncoding("utf-8");
         Element root = document.addElement("root");
-
         Element user = root.addElement("user");
         Element username = user.addElement("username").addText("chen");
         Element password = user.addElement("password").addText("yan");
