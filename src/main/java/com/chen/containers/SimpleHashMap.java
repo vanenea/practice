@@ -55,7 +55,6 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
         for (MapEntry<K,V> m : map)
             if(m.getKey().equals(key))
                 return m.getValue();
-
         return null;
     }
 
