@@ -49,8 +49,22 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
 
     @Override
     public V get(Object key) {
-        return super.get(key);
+        int index = Math.abs(key.hashCode()) % SIZE;
+        LinkedList<MapEntry<K, V>> map = buckets[index];
+        if(map==null)   return null;
+        for (MapEntry<K,V> m : map)
+            if(m.getKey().equals(key))
+                return m.getValue();
+
+        return null;
     }
 
-
+    public static void main(String[] args) {
+        long before = System.currentTimeMillis();
+        SimpleHashMap<String, String> shm = new SimpleHashMap<>();
+        shm.put("hello","world");
+        shm.put("java","web");
+        System.out.println(shm.get("java"));
+        System.out.println(System.currentTimeMillis()-before);
+    }
 }
