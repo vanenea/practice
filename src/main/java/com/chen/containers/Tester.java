@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**两个集合间的交集
+ * @author chen
+ */
 public class Tester {
 
     public static void main(String[] args) {
