@@ -1,6 +1,8 @@
 package com.chen.containers;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class LinkedHashMapDemo {
 
@@ -16,5 +18,9 @@ public class LinkedHashMapDemo {
             System.out.println(map.get(Integer.valueOf(i).toString()));
         }
         System.out.println(map);
+
+        Map<String, String> m = new HashMap<>();
+        System.out.println(1>>4);
+        System.out.println(Integer.decode("52"));
     }
 }
