@@ -1,6 +1,7 @@
 package com.chen.containers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class Tester {
         Collections.sort(bs1);
         System.out.println(bs1);
         System.out.println(Collections.binarySearch(bs1,"aaa"));
-
+        List<String> u = Collections.unmodifiableList(new ArrayList<>(Arrays.asList("JAVA C++ C# PYTHON".split(" "))));
+        System.out.println(u);
     }
 }
