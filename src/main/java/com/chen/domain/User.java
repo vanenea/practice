@@ -1,6 +1,6 @@
 package com.chen.domain;
 
-public class User {
+public class User implements Cloneable {
 
 	private Integer id;
 	private String username;
@@ -71,5 +71,15 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
-	
+
+	@Override
+	public User clone() {
+		User u = null;
+		try {
+			return (User) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return u;
+	}
 }
