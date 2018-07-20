@@ -26,13 +26,13 @@ public class FailFast {
 //        System.out.println(arr);
 
         user1.add(new User(1,"chen","123456"));
-        Iterator<User> it = user1.iterator();
-        while (it.hasNext()){
-            user2.add(it.next().clone());
-        }
-        user2.clear();
-      //  user2.addAll(user1);
-        user2.add(user1.get(0));
+//        Iterator<User> it = user1.iterator();
+//        while (it.hasNext()){
+//            user2.add(it.next().clone());
+//        }
+ //       user2.clear();
+        user2.addAll(user1);
+//        user2.add(user1.get(0));
 
         System.out.println("user1:"+user1);
         System.out.println("user2:"+user2);
@@ -43,5 +43,8 @@ public class FailFast {
         System.out.println("user1:"+user1);
         System.out.println("user2:"+user2);
 
+        System.out.println("#############");
+        
+        
     }
 }
