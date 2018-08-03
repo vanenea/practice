@@ -23,6 +23,8 @@ public class TestFinal extends BasicClass{
 		Deque<String> de;
 		Vector ver;
 		Hashtable ht;
-		
+		byte a = 'a';
+		System.out.println((float)a);
+		System.out.println((int)1.36e-43f);
 	}
 }

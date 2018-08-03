@@ -17,5 +17,19 @@ public class DoSomething {
 		Pattern pa = Pattern.compile("\\d+");
 		System.out.println(pa.matcher("52").matches());
 		System.out.println(Float.isNaN(Integer.parseInt("123")));
+		
+		
+		
+		
+		String str = null;
+		try {
+			str.split(",");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
 	}
 }
