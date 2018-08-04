@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.chen.domain.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AlibabaJson {
 
@@ -31,7 +28,10 @@ public class AlibabaJson {
         JSONObject jo1 = new JSONObject();
         jo.putAll(map);
         System.out.println("jo:"+jo.toJSONString());
-
+        for ( Map.Entry<String, Object> mapEntry: jo.entrySet()) {
+            System.out.println("key:"+mapEntry.getKey());
+            JSONObject j1 = JSON.parseObject(jo.get(mapEntry.getKey()).toString());
+        }
         json2JsonObjectM1();
 
         json2BeanM2();
