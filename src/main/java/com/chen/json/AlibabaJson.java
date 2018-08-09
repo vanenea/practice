@@ -1,13 +1,14 @@
 package com.chen.json;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.chen.domain.User;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.chen.domain.User;
 
 public class AlibabaJson {
 
@@ -17,7 +18,6 @@ public class AlibabaJson {
         user1.setId(1);
         user1.setUsername("chen");
         user1.setPassword("123456");
-
         User user2 = new User();
         user2.setId(1);
         user2.setUsername("chen");
@@ -31,7 +31,9 @@ public class AlibabaJson {
         JSONObject jo1 = new JSONObject();
         jo.putAll(map);
         System.out.println("jo:"+jo.toJSONString());
-
+        
+        //JSONArray ja = JSON.parseArray(user1.toString());
+        
         json2JsonObjectM1();
 
         json2BeanM2();

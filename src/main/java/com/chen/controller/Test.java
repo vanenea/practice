@@ -32,6 +32,12 @@ public class Test {
 	public String test() {
 		return "test";
 	}
+	
+	@RequestMapping("/vueDemo")
+	public String vueDemo() {
+		return "vueDemo";
+	}
+	
 	@RequestMapping("/test")
 	@ResponseBody
 	public void tes() {
