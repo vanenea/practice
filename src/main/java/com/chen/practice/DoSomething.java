@@ -1,5 +1,7 @@
 package com.chen.practice;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class DoSomething {
@@ -21,15 +23,21 @@ public class DoSomething {
 		
 		
 		
-		String str = null;
-		try {
-			str.split(",");
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
+//		String str = null;
+//		try {
+//			str.split(",");
+//			
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
 		
+		Map<String, String> m = new HashMap<>();
+		m.put("Chinese", "yellow");
+		m.put("American", "white");
+		System.out.println(m);
 		
+		String st = "he".intern();
+		System.out.println(st);
 	}
 }
