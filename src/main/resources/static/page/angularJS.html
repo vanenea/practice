@@ -10,7 +10,15 @@
 <body ng-app="myApp" ng-controller="myCtrl">
 	<h1>Angular测试</h1>
 	<ul>
-    	<li ng-repeat="x in username and y in password">{{x}}{{y}}</li>
+    	<li ng-repeat="x in users track by $index">{{x.username}},{{x.password}}
+    		<ul>
+    			<li ng-repeat="y in x.list track by $index">{{y.list}},{{$index}}</li>
+    		</ul>
+    	</li>
 	</ul>
+	<div ng-repeat="f in users track by $index">
+		<h1>{{f.username}},{{f.password}}</h1>
+		<h2 ng-repeat="e in f.list track by $index" ng-if="$index%2==0">{{e.list}}</h2>
+	</div>
 </body>
 </html>
