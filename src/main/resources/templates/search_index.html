@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>乐飞搜索</title>
+<link rel="shortcut icon" href="favicon.ico"></link>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/global-1.8.3.bq.js"></script>
+<style type="text/css">
+	.search{
+		margin:50px 0px 0px 550px;
+	}
+	/* .dispaly{
+		display: none;
+	} */
+</style>
+</head>
+<body>
+	<div class="search">
+		<input class="inputText" type="text" /> &nbsp;&nbsp;<input class="onSearch" type="button" value="搜索"/>
+	</div>
+	<div class="dispaly">
+	</div>
+</body>
+<script type="text/javascript" th:inline="javascript">
+	var htmlTemplate = '<h3>%title%</h3>'
+						+'<div>%detailMore%</div>'
+						+'<div><a href="%url%" target="_blank">%url%</a></div>';
+	$(".onSearch").click(function(){
+		var valData = $(".inputText").val();
+		$.ajax({
+			"url":"handlerSearch",
+			"data":"keyWords="+valData,
+			"type":"POST",
+			"dataType":"json",
+			"success":function(obj){
+				 $(".dispaly").empty();
+				console.log(obj);
+				var htmlString = "";
+				/*<![CDATA[ */
+				for(i=0;i<obj.data.length;i++){
+					var article = obj.data[i];
+					htmlString += htmlTemplate;
+					htmlString = htmlString.replace("%title%",article.title);
+					htmlString = htmlString.replace("%detailMore%",article.detailMore);
+					htmlString = htmlString.replace(/%url%/g,article.url);
+					console.log("data:"+htmlString);
+					
+				} 
+				/*]]>*/ 
+				$(".dispaly").html(htmlString);	
+				
+				
+			}
+		})
+	});
+</script>
+</html>

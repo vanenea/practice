@@ -26,9 +26,9 @@
 	</insert>
 	
 	<!-- List<User> showUser(User user); -->
-	<select id="showUser" parameterType="com.chen.domain.User">
+	<select id="showUser" resultType="com.chen.domain.User">
 		select 
-			username,password
+			id,username,password
 		from
 			user
 	</select>

@@ -10,5 +10,5 @@ public interface IUserService {
 	
 	Integer insertUser(User user);
 	
-	List<User> showUser(User user);
+	List<User> showUser();
 }

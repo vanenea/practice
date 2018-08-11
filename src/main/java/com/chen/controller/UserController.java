@@ -1,15 +1,17 @@
 package com.chen.controller;
 
-import javax.annotation.Resource;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.chen.domain.User;
 import com.chen.mapper.UserMapper;
 import com.chen.service.IUserService;
+import com.chen.utils.ResponseResult;
 
 @Controller
 public class UserController {
@@ -18,6 +20,11 @@ public class UserController {
 	
 	@Autowired
 	private UserMapper userMapper;
+
+	@GetMapping("/angular")
+	public String angularTest() {
+		return "angularJS";
+	}
 	
 	@RequestMapping("/user")
 	@ResponseBody
@@ -41,9 +48,10 @@ public class UserController {
 	
 	@RequestMapping("/showUser")
 	@ResponseBody
-	public String showUser() {
-		User user = new User();
-		user.setId(1);
-		return userService.showUser(user).toString();
+	public ResponseResult<List<User>> showUser() {
+		
+		List<User> list = userService.showUser();
+		ResponseResult<List<User>> result = new ResponseResult<List<User>>(1, "用户列表", list);
+		return result;
 	}
 }
