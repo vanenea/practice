@@ -25,7 +25,7 @@ public class UserController {
 	public String angularTest() {
 		return "angularJS";
 	}
-	
+
 	@RequestMapping("/user")
 	@ResponseBody
 	public User findUserById(Integer id) {

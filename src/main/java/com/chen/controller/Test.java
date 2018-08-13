@@ -28,6 +28,10 @@ public class Test {
 	@Resource
 	private RedisTemplate<String, Object> redisTemplate;
 	
+	@RequestMapping("/test1")
+	public String test() {
+		return "test";
+	}
 	@RequestMapping("/test")
 	@ResponseBody
 	public void tes() {
