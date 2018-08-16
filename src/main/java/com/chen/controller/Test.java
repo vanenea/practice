@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.chen.configuration.PropertiesConfig;
 
+import net.sf.json.JSONArray;
+
 @Controller
 public class Test {
 
