@@ -6,10 +6,9 @@
 <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="../js/angularJS.js"></script>
-<script type="text/javascript" src="../js/vueDemo.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
-	<h1>Angular测试</h1>
+	<h1>{{title}}</h1>
 	<ul>
     	<li ng-repeat="x in users track by $index">{{x.username}},{{x.password}}
     		<ul>
