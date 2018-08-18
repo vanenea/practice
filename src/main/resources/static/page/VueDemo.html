@@ -30,21 +30,27 @@
 		</div>
 		
 		<hr>
-		<testCom v-for="t in title" v-bind="t"></testCom>
+		<in-post v-for="t in title" v-bind="t.title"></in-post>
+		<h3 v-for="j in title">{{j.title}}</h3>
 	</div>
 	<script type="text/javascript">
+		var titles = [
+			{title:"vue1"},
+			{title:"vue2"},
+			{title:"vue3"}
+		];
+		Vue.component("in-post",{
+			props:['title'],
+			template : "<h1>{{t.title}}</h1>"
+		})
 		var vm = new Vue({
 				el : "#vid",
 				data : {
 					message : "",
-					title :["vue1","vue2","vue3"]
+					title :titles
 				}
 			})
 		
-		Vue.component("testCom",{
-			props:['title'],
-			template : "<h1>{{title}}</h1>"
-		})
 	</script>
 </body>
 </html>
