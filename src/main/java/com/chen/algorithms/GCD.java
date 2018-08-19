@@ -1,5 +1,10 @@
 package com.chen.algorithms;
 
+/**
+ * 欧几里德算法
+ * @author Administrator
+ *
+ */
 public class GCD {
 
 	public static int gcd(int p, int q) {
