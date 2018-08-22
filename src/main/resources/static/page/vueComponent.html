@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VueComponent</title>
+</head>
+<body>
+	<div id="mid">
+		<c-test></c-test>
+		<c-share></c-share>
+		<a>{{msg}}</a>
+	</div>
+	
+	</hr>
+	
+	<template id="tp"><a href="{{msg}}">{{msg}}</a></template>
+	<script src="../js/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('c-test',{
+			template:'<h1>测试</h1>'
+		})
+		Vue.component('c-share',{
+			template:'#tp'
+		})
+		new Vue({
+			el:'#mid',
+			data:{
+				msg:"https://www.baidu.com"
+			}
+		})
+	</script>
+</body>
+</html>

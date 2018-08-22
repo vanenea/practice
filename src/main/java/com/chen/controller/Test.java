@@ -40,6 +40,11 @@ public class Test {
 		return "vueDemo";
 	}
 	
+	@RequestMapping("/component")
+	public String vueComp() {
+		return "vueComponent";
+	}
+	
 	@RequestMapping("/test")
 	@ResponseBody
 	public void tes() {

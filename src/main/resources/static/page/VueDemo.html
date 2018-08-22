@@ -32,6 +32,9 @@
 		<hr>
 		<in-post v-for="t in title" v-bind="t.title"></in-post>
 		<h3 v-for="j in title">{{j.title}}</h3>
+		
+		<hr>
+		<button @click="test()">click me</button>
 	</div>
 	<script type="text/javascript">
 		var titles = [
@@ -44,13 +47,23 @@
 			template : "<h1>{{t.title}}</h1>"
 		})
 		var vm = new Vue({
-				el : "#vid",
-				data : {
-					message : "",
-					title :titles
-				}
-			})
+			el : "#vid",
+			data : {
+				message : "",
+				title :titles
+			},
+			methods:{
+				test: function(){
+					log();
+				},
+
+			}
 		
+		})
+		
+		function log(){
+			alert("123456");
+		}
 	</script>
 </body>
 </html>
