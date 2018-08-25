@@ -5,18 +5,16 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 import javax.jms.Destination;
 
-import com.chen.activemq.Producer;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.chen.configuration.PropertiesConfig;
 
-import net.sf.json.JSONArray;
+import com.chen.activemq.Producer;
+import com.chen.configuration.PropertiesConfig;
 
 @Controller
 public class Test {
@@ -43,6 +41,16 @@ public class Test {
 	@RequestMapping("/component")
 	public String vueComp() {
 		return "vueComponent";
+	}
+	
+	@RequestMapping("/basicProps")
+	public String basicProps() {
+		return "basic-props";
+	}
+	
+	@RequestMapping("/vueSearch")
+	public String vueSearch() {
+		return "vueSearch";
 	}
 	
 	@RequestMapping("/test")
