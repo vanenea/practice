@@ -27,8 +27,8 @@ public class UserSerivceImp implements IUserService {
 	}
 
 	@Override
-	public List<User> showUser(User user) {
-		return userMapper.showUser(user);
+	public List<User> showUser() {
+		return userMapper.showUser();
 	}
 
 }

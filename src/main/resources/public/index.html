@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>乐飞资讯后台管理</title>
+<link rel="shortcut icon" href="favicon.ico">
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/global-1.8.3.bq.js"></script>
+<style type="text/css">
+	a{font-size: 20px;color: blue;cursor: pointer;  }
+</style>
+</head>
+<body>
+	<input type="file" id="keywords" /><a url="getkeywords" data="keywords">读取关键字文件</a>
+	<br><br>
+	<input type="file" id="white" /><a url="getkeywords" data="white">读取白名单文件</a>
+	<br><br>
+	<input type="file" id="black" /><a url="getkeywords" data="black">读取黑名单文件</a>
+	<br><br>
+	<a url="startGet">开始获取百度关键字搜索数据</a>
+	<script type="text/javascript">
+		$("a").click(function(){
+			var name=$(this).attr("data");
+			var url=$(this).attr("url");
+			
+			try {
+				ajax1(name,url,$("#"+name)[0].files[0].name);
+			}catch(err){
+				ajax1(name,url,"");
+			}
+		})
+		function ajax1(key,url,path){
+			if(key==""&&path!="") return;
+			ajax({
+				url:"news/"+url,
+				data:{key:key,path:path},
+				type:"get",
+				success:function(data){
+					var json=eval('('+data+')')
+					alert(json.message+"　　"+json.data)
+				}
+			});
+		}
+	</script>
+</body>
+</html>

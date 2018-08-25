@@ -24,5 +24,5 @@ public interface UserMapper {
 	 */
 	List<User> findAll();
 	
-	List<User> showUser(User user);
+	List<User> showUser();
 }

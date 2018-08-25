@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VueComponent</title>
+</head>
+<body>
+	<div id="mid">
+		<c-test></c-test>
+		<c-share></c-share>
+		</br>
+		<a>{{msg}}</a>
+	</div>
+	
+	</hr>
+	<div class="box">
+	    <input type="button" value="体育" @click="sSign='ty'" />
+	    <input type="button" value="音乐" @click="sSign='yy'"/>
+	    <component :is="sSign"></component>
+     </div>
+
+	<template id="tp"><a v-bind="msg" :href='msg'>{{msg}}</a></template>
+	<script src="../js/vue.js"></script>
+	<script type="text/javascript">
+		var msg = {msg:"https://www.baidu.com"};
+		Vue.component('c-test',{
+			template:'<h1>测试</h1>'
+		})
+		Vue.component('c-share',{
+			template:'#tp',
+			props:['msg']
+		})
+		new Vue({
+			el:'#mid',
+			data:msg
+		})
+		
+		var vm=new Vue({
+            el:".box",
+            data:{
+                sSign:"ty"
+            },
+            components:{
+                "ty":{
+                    template:"<h3>这是体育新闻</h3>"
+                },
+                "yy":{
+                    template:"<h3>这是音乐新闻</h3>"
+                }
+            }
+        })
+
+
+	</script>
+</body>
+</html>

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.chen.configuration.PropertiesConfig;
 
+import net.sf.json.JSONArray;
+
 @Controller
 public class Test {
 
@@ -27,6 +29,21 @@ public class Test {
 
 	@Resource
 	private RedisTemplate<String, Object> redisTemplate;
+	
+	@RequestMapping("/test1")
+	public String test() {
+		return "test";
+	}
+	
+	@RequestMapping("/vueDemo")
+	public String vueDemo() {
+		return "vueDemo";
+	}
+	
+	@RequestMapping("/component")
+	public String vueComp() {
+		return "vueComponent";
+	}
 	
 	@RequestMapping("/test")
 	@ResponseBody

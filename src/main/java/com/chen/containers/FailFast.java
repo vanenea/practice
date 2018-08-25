@@ -2,6 +2,7 @@ package com.chen.containers;
 
 import com.chen.domain.User;
 
+import java.io.DataInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -45,6 +46,6 @@ public class FailFast {
 
         System.out.println("#############");
         
-        
+   
     }
 }
