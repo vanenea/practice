@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Dispatch</title>
+	</head>
+
+	<body>
+		<div id='app'>
+			<p>父组件</p>
+			<h1>message:{{message}}</h1>
+			<test1></test1>
+		</div>
+		
+		<template id='temp'>
+			<div>
+				<p>子组件</p>
+				<input v-model='msg' />
+				<input type="button" @click='go()' value="提交" />
+			</div>
+		</template>
+		
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component('test1',{
+				template : "#temp",
+				data : function(){
+					return {
+						msg : ''
+					}
+				},
+				methods :{
+					go : function(){
+						this.$emit('chid-msg', this.msg);
+						this.msg='';
+					}
+				}
+			})
+			new Vue({
+				el : '#app',
+				data : {
+					message : []
+				},
+// 				this.$on('child-msg',function(msg){
+// 					this.message.push(msg);
+// 				}),
+				event:{
+					'child-msg' : function(msg){
+						this.message.push(msg);
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
