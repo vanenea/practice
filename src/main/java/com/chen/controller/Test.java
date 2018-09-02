@@ -1,5 +1,7 @@
 package com.chen.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
@@ -13,8 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.chen.activemq.Producer;
 import com.chen.configuration.PropertiesConfig;
+import com.chen.utils.ResponseResult;
 
 @Controller
 public class Test {
@@ -51,6 +56,80 @@ public class Test {
 	@RequestMapping("/vueSearch")
 	public String vueSearch() {
 		return "vueSearch";
+	}
+	
+	@RequestMapping("/cart")
+	public String cart() {
+		return "cart";
+	}
+	
+	@RequestMapping("/cartList")
+	@ResponseBody
+	public ResponseResult<JSONObject> cartList(){
+		String json = "{\r\n" + 
+				"      \"totalHoney\":59,\r\n" + 
+				"      \"list\":[\r\n" + 
+				"      {\r\n" + 
+				"      \"name\": \"面具1\",\r\n" + 
+				"      \"price\": 19,\r\n" + 
+				"      \"count\": 1,\r\n" + 
+				"      \"amount\": 19,\r\n" + 
+				"      \"imgPic\": \"../images/test.jpg\",\r\n" + 
+				"      \"gifts\": [\r\n" + 
+				"        {\r\n" + 
+				"          \"partId\":\"10001\",\r\n" + 
+				"          \"partName\":\"打火机\"\r\n" + 
+				"        },\r\n" + 
+				"        {\r\n" + 
+				"          \"partId\":\"10002\",\r\n" + 
+				"          \"partName\":\"火柴\"\r\n" + 
+				"        }\r\n" + 
+				"      ]\r\n" + 
+				"      },\r\n" + 
+				"      {\r\n" + 
+				"      \"name\": \"面具2\",\r\n" + 
+				"      \"price\": 20,\r\n" + 
+				"      \"count\": 1,\r\n" + 
+				"      \"amount\": 20,\r\n" + 
+				"      \"imgPic\": \"../images/test1.jpg\",\r\n" + 
+				"        \"gifts\": [\r\n" + 
+				"          {\r\n" + 
+				"            \"partId\":\"10001\",\r\n" + 
+				"            \"partName\":\"打火机\"\r\n" + 
+				"          },\r\n" + 
+				"          {\r\n" + 
+				"            \"partId\":\"10002\",\r\n" + 
+				"            \"partName\":\"火柴盒\"\r\n" + 
+				"          }\r\n" + 
+				"        ]\r\n" + 
+				"      },\r\n" + 
+				"        {\r\n" + 
+				"          \"name\": \"面具3\",\r\n" + 
+				"\r\n" + 
+				"          \"price\": 20,\r\n" + 
+				"          \"count\": 1,\r\n" + 
+				"          \"amount\": 20,\r\n" + 
+				"          \"imgPic\": \"../images/test1.jpg\",\r\n" + 
+				"          \"gifts\": [\r\n" + 
+				"            {\r\n" + 
+				"              \"partId\":\"10001\",\r\n" + 
+				"              \"partName\":\"打火机\"\r\n" + 
+				"            },\r\n" + 
+				"            {\r\n" + 
+				"              \"partId\":\"10002\",\r\n" + 
+				"              \"partName\":\"火柴盒\"\r\n" + 
+				"            }\r\n" + 
+				"          ]\r\n" + 
+				"        }\r\n" + 
+				"      ]\r\n" + 
+				"  }";
+		JSONObject jo =JSON.parseObject(json);
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("data", jo);
+//		jo.putAll(map);
+//		System.out.println(jo.toJSONString());
+		ResponseResult<JSONObject> result = new ResponseResult<>(1,"返回数据成功",jo);
+		return result;
 	}
 	
 	@RequestMapping("/test")
