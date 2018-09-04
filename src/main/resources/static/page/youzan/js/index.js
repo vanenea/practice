@@ -1,18 +1,3 @@
-import "css/common.css";
-import "./index.css";
-
-import Vue from "vue";
-import leanCloudTool from "js/api.js";
-import { Toast } from 'mint-ui';
-import { InfiniteScroll } from 'mint-ui';
-
-Vue.use(InfiniteScroll);
-
-
-
-import footNav from "components/FootNav.vue"
-import topBanner from "components/Swiper.vue"
-import mixin from "js/mixin.js"
 
 new Vue({
     el: "#app",
@@ -38,10 +23,10 @@ new Vue({
             domSelector: ".index-swiper",
         },
     },
-    components: {
-        "foot-nav": footNav,
-        "top-banner": topBanner,
-    },
+//     components: {
+//         "foot-nav": footNav,
+//         "top-banner": topBanner,
+//     },
     methods: {
         loadMore() {
             if (!this.hotList.isUserScroll || !this.hotList.isInitSuccess || this.hotList.isListDone) {return}
@@ -95,6 +80,6 @@ new Vue({
         this.getNewData("first")
         this.getBannerImg()
         this.listenToWindowScroll()
-    },
-    mixins: [mixin],
+    }
+   // mixins: [mixin],
 })

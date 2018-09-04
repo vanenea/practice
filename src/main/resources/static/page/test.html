@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="../js/test.js"></script>
+<script type="text/javascript" src="../common/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 	<div id="app" v-cloak>
@@ -12,8 +11,10 @@
 		<div>
 			<h1 v-for="(item,index,key) of items" :key="key">{{index}}.{{item.username}}</h1>
 		</div>
+		<test></test> 
 	</div>
-	<script src='js/vue.js'></script>
+	<script src='js/common/vue.js'></script>
+	<script type="text/javascript" src="../js/test.js"></script>
 	<script type="text/javascript">
 		var vm = new Vue({
 			el : "#app",
