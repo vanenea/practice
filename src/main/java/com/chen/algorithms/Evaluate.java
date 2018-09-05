@@ -37,6 +37,5 @@ public class Evaluate {
 		}
 		sca.close();
 		System.out.println(vals.pop());
-		
 	}
 }
