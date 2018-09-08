@@ -36,32 +36,7 @@ new Vue({
             }, 200);
         },
         getNewData(type) {
-            leanCloudTool("HotList").then(res => {
-                let i = 0
-                let eventId = setInterval(() => {
-                    if (!res[i]) {
-                        this.hotList.loading = false
-                        if (type === "first") {
-                            this.hotList.isInitSuccess = true
-                        }
-                        this.hotList.pageNum += 1
-                        if (this.hotList.pageNum === 6) {
-                            this.hotList.isListDone = true
-                        }
-                        clearInterval(eventId)
-                        return
-                    } else {
-                        this.hotList.lists.push(res[i])
-                        i++
-                    }
-                }, 200)
-            }, () => {
-                Toast({
-                    message: '网络异常',
-                    position: 'bottom',
-                    duration: 2500
-                })
-            })
+            
         },
         listenToWindowScroll() {
             window.ontouchmove = (e) => {
@@ -71,9 +46,7 @@ new Vue({
 
         },
         getBannerImg() {
-            leanCloudTool("Banner").then(res => {
-                this.bannerList = res
-            })
+           
         },
     },
     created() {
