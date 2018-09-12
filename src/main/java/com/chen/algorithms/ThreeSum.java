@@ -26,7 +26,7 @@ public class ThreeSum {
 	
 	public static void main(String[] args) {
 		try {
-			In in = new In("1Kints.txt");
+			In in = new In("8Kints.txt");
 			Long last = System.currentTimeMillis();
 			int  count = count(in.readInt());
 			System.out.println((System.currentTimeMillis()-last)/1000.00);
