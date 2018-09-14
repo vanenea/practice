@@ -33,7 +33,7 @@ public class Temporary implements Comparable<Temporary>  {
 	 */
 	public static int[] insertion(int[] arr) {
 		for (int i = 1; i < arr.length; i++) {
-			for (int j = i;j>0 && arr[j-1]>arr[j]; j--) {
+			for (int j = i;j>0 && arr[j-1]>arr[j]; j--) { //插入到合适的位置
 				int swap = arr[i];
 				arr[i] = arr[j];
 				arr[j] = swap;
@@ -49,7 +49,7 @@ public class Temporary implements Comparable<Temporary>  {
 	
 	public static void main(String[] args) {
 		Random r = new Random();
-		int[] arr = new int[20000];
+		int[] arr = new int[200000];
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = r.nextInt();
 		}
