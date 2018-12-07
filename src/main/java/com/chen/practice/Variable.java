@@ -29,6 +29,10 @@ public class Variable {
 		System.out.println(time);
 		double hours =  time/(1000.00*60*60);
 		System.out.println(hours);
+		
+		String temp = "helloWold";
+		assert temp.length()==2;
+		System.out.println("123213");
 	}
 	
 	class demo{
