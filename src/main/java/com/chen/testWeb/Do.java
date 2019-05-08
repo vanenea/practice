@@ -28,7 +28,7 @@ public class Do implements Runnable {
 
 	@Override
 	public void run() {
-		HttpGet get = new HttpGet("http://www.xmaizi.top/");
+		HttpGet get = new HttpGet("http://www.chenlaoshi.top");
 		get.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36");
 		try {
 			HttpResponse response = client.execute(get);
