@@ -11,7 +11,10 @@ public class DoSomething {
 		int b = 3;
 		add(b);
 		System.out.println(b);
-		
+		System.out.println(System.getProperty("user.name"));
+		String[] str = new String[1];
+		System.out.println(str.getClass());
+		System.out.println(System.getProperty("java.io.tmpdir"));
 	}
 	
 	public static int add(int a) {
