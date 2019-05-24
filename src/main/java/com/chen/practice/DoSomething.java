@@ -26,7 +26,8 @@ public class DoSomething {
 			System.out.println(key);
 			System.out.println(map.get(key));
 		}
-		
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		System.out.println(map1.get("oracek"));
 	}
 	
 	public static int add(int a) {
