@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.in;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 import org.apache.poi.ss.formula.functions.Roman;
 
@@ -181,7 +182,39 @@ public class Leetcode {
        return prefix;
     }
     
-    
+	/**
+	 * <p>
+	 * Given a string containing just the characters '(', ')', '{', '}', '[' and
+	 * ']', determine if the input string is valid. 
+	 * </p>
+	 * 
+	 * <p>
+	 * An input string is valid if:
+	 * </p>
+	 * <p>
+	 * Open brackets must be closed by the same type of brackets. Open brackets must
+	 * be closed in the correct order. Note that an empty string is also considered
+	 * valid.
+	 * </p>
+	 */
+	public boolean isValid(String s) {
+        Map<Character, Character> map = new HashMap<Character, Character>();
+        map.put('(', ')');
+        map.put('{', '}');
+        map.put('[', ']');
+        char[] charArray = s.toCharArray();
+        Stack<Character> re = new Stack<Character>();
+        for (int i = 0; i < charArray.length; i += 2) {
+        	Character current = charArray[i];
+        	Character next = charArray[i+1];
+        	if(!map.get(current).equals(next)) {
+        		re.add(current);
+        		re.add(next);
+        	}
+        	
+		}
+		return false;
+    }
     
     public static void main(String[] args) {
 		System.out.println(reverse(-123));
