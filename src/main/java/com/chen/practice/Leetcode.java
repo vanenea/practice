@@ -210,6 +210,8 @@ public class Leetcode {
         	if(!map.get(current).equals(next)) {
         		re.add(current);
         		re.add(next);
+        	} else {
+        		
         	}
         	
 		}
