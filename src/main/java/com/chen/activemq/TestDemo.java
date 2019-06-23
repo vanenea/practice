@@ -1,12 +1,11 @@
 package com.chen.activemq;
 
-import com.sun.xml.internal.ws.developer.UsesJAXBContext;
+import javax.jms.Destination;
+
 import org.apache.activemq.command.ActiveMQQueue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.jms.Destination;
 @Component
 public class TestDemo {
 
