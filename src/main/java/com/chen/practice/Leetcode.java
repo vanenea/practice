@@ -1,12 +1,14 @@
 package com.chen.practice;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
 /**
  * LeetCode算法题
- * @author Administrator
+ * @author Chen.Y
  *
  */
 public class Leetcode {
@@ -221,12 +223,30 @@ public class Leetcode {
 	  return stack.isEmpty();
     }
     
-	
+    /**
+     * <h2>Remove Duplicates from Sorted Array </h2>
+     * 
+     * Given nums = [1,1,2],
+	 *
+	 * Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
+     *
+	 *	It doesn't matter what you leave beyond the returned length.
+     * @param nums
+     * @return
+     */
+    public static int removeDuplicates(int[] nums) {
+    	Set<Number> set = new HashSet<Number>();
+    	for (int i = 0; i < nums.length; i++) {
+    		set.add(nums[i]);
+		}
+        return set.size();
+    }
 	
     public static void main(String[] args) {
 		System.out.println(reverse(-123));
 		System.out.println(romanToInt("MCMXCIV"));
 		System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
+		System.out.println(removeDuplicates(new int[] {1,1,2}));
 	}
 	
 }
