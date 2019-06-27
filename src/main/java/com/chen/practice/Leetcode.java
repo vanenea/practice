@@ -241,12 +241,25 @@ public class Leetcode {
 		}
         return set.size();
     }
+    
+    public static int removeDuplicatesTemp(int[] nums) {
+	    if (nums.length == 0) return 0;
+	    int i = 0;
+	    for (int j = 1; j < nums.length; j++) {
+	        if (nums[j] != nums[i]) {
+	            i++;
+	            nums[i] = nums[j];
+	        }
+	    }
+	    return i + 1;
+    }
 	
     public static void main(String[] args) {
 		System.out.println(reverse(-123));
 		System.out.println(romanToInt("MCMXCIV"));
 		System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
-		System.out.println(removeDuplicates(new int[] {1,1,2}));
+		System.out.println(removeDuplicates(new int[] {1,1,2,3,1}));
+		System.out.println(removeDuplicatesTemp(new int[] {1,1,2,3,1}));
 	}
 	
 }
