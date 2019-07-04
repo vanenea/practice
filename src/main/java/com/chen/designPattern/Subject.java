@@ -1,11 +1,11 @@
 package com.chen.designPattern;
 
-public class Subject {
+public interface Subject {
 
-	public Subject() {
-		java.util.Observer ob;
-		java.util.Observable oba;
-	}
+	void addObserver(Observer observer);
 	
+	void deleteObserver(Observer observer);
+	
+	void update(float temperature, float humidity);
 	
 }
