@@ -1,4 +1,4 @@
-package com.chen.designPattern;
+package com.chen.designPattern.observer;
 
 public class Application {
 
