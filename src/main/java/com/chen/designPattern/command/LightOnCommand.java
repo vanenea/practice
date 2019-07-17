@@ -1,16 +1,21 @@
 package com.chen.designPattern.command;
 
-public class LightCommand implements Command {
+public class LightOnCommand implements Command {
 
 	Light light;
 	
-	public LightCommand(Light light){
+	public LightOnCommand(Light light){
 		this.light = light;
 	}
 	
 	@Override
 	public void excuted() {
 		light.on();
+	}
+
+	@Override
+	public void undo() {
+		light.off();
 	}
 
 }
