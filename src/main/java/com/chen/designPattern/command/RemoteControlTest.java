@@ -12,6 +12,13 @@ public class RemoteControlTest {
 		src.onButtonWasPressed(0);
 		src.offButtonWasPressed(0);
 	
-		src.onButtonWasPressed(1);
+		
+		System.out.println("====================");
+		Command[] command = {lightOnCommand, lightOffCommand};
+		MacroCommand macroCommand = new MacroCommand(command);
+		src.setCommand(0, macroCommand, null);
+		src.onButtonWasPressed(0);
+		
+		src.undo();
 	}
 }
