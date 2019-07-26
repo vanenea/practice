@@ -14,10 +14,7 @@ public class DinerMenu {
 		addItem("dm&4", "dm&4", false, 12.9);
 		addItem("dm&5", "dm&5", true, 132.2);
 		addItem("dm&6", "dm&6", true, 112.0);
-		addItem("dm&7", "dm&7", false, 2.0);
-		addItem("dm&8", "dm&8", true, 15.3);
-		addItem("dm&9", "dm&9", true, 7.3);
-		addItem("dm&10", "dm&10", false, 8.32);
+		
 	}
 	
 	public void addItem(String name, String description, boolean vegetarian, double price) {
