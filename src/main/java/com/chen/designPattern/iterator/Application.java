@@ -6,7 +6,7 @@ public class Application {
 		DinerMenu dinerMenu = new DinerMenu();
 		PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
 		Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
-		
+		 
 		waitress.getMenu();
 	}
 }
