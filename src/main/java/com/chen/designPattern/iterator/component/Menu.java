@@ -1,6 +1,7 @@
 package com.chen.designPattern.iterator.component;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Menu extends MenuComponent {
@@ -39,6 +40,12 @@ public class Menu extends MenuComponent {
 		System.out.println("\n" + getName());
 		System.out.println(", " + getDescription());
 		System.out.println("-----------------------");
+		
+		Iterator<MenuComponent> iterator = menuComponent.iterator();
+		while(iterator.hasNext()) {
+			MenuComponent next = iterator.next();
+			next.print();
+		}
 	}
 	
 	
