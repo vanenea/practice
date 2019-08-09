@@ -14,7 +14,7 @@ public class MenuTestDrive {
 		allMenu.add(dinerMenu);
 		allMenu.add(dinerMenu);
 		allMenu.add(cafeMenu);
-		allMenu.add(dessertMenu);
+		
 		
 		pancakeHouseMenu.add(new MenuItem("Pasta", "Pasta", true, 9.86));
 		
