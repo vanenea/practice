@@ -88,7 +88,7 @@
 	var url=window.location.href.replace("picture.html","websocket").replace("http","ws");
 	//判断当前浏览器是否支持WebSocket
 	if ('WebSocket' in window) {
-		websocket = new WebSocket(url);
+		websocket = new WebSocket(url+"?id="+Math.random()*100000);
 	} else {
 		alert("不支持WEBSOCKET")
 	};
