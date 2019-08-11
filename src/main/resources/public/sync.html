@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>WEB</title>
+	
+</head>
+<body>
+	<div id="app" style="position:absolute;display">
+	<h1>有什么不妥</h1>
+	<h1>有话就直说</h1>
+	<h1>别窝在角落</h1>
+	<h1>不爽就反驳</h1>
+	<h1>到底跩什么</h1>
+	<h1>懂不懂篮球</h1>
+	<h1>有种不要走</h1>
+	<h1>三对三斗牛</h1>
+	<h1>有什么不妥</h1>
+	<h1>有话就直说</h1>
+	<h1>别窝在角落</h1>
+	<h1>不爽就反驳</h1>
+	<h1>到底跩什么</h1>
+	<h1>懂不懂篮球</h1>
+	<h1>有种不要走</h1>
+	<h1>三对三斗牛</h1>
+	<h1>三分球 它在空中停留</h1>
+	<h1>所有人看著我</h1>
+	<h1>抛物线进球</h1>
+	<h1>单手过人运球</h1>
+	<h1>篮下妙传出手</h1>
+	<h1>漂亮的假动作</h1>
+	<h1>帅呆了我</h1>
+	<h1>全场盯人防守</h1>
+	<h1>篮下禁区游走</h1>
+	<h1>快攻抢篮板球</h1>
+	<h1>得分都靠我</h1>
+	<h1>你拿了球不投</h1>
+	<h1>又不会掩护我</h1>
+	<h1>选你这种队友</h1>
+	<h1>瞎透了我</h1>
+	<h1>说你说 分数怎么停留 一直在停留 谁让它停留的</h1>
+	<h1>为什么 我女朋友 场外加油</h1>
+	<h1>你却还让我出糗</h1>
+	<h1>你说啊 你怎么抄我球</h1>
+	<h1>你说啊 你怎么打我手</h1>
+	<h1>你说 是不是你不想活</h1>
+	<h1>说 你怎么面对我 甩开球 我满腔的怒火</h1>
+	<h1>我想揍你已经很久 别想走</h1>
+	<h1>说 你眼睛看着我 别发抖 你给我抬起头</h1>
+	<h1>有话去对医药箱说 别怪我</h1>
+	<button style="width:100%; height:100px; font-size:50px" onclick="sendMsg('Hello world')">1516161</button>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hammer.js"></script>
+	<script type="text/javascript" src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+	<script type="text/javascript">
+	
+		  // 初始化
+		var vConsole = new VConsole();
+		var app = document.getElementById("app");
+		var hammer = new Hammer(app);
+		/* hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL }); */
+		
+		hammer.on('pan panleft panright tap press', function(ev) {
+			console.log(ev);
+			sendMsg(ev.type+","+$(window).scrollTop()+","+$(window).scrollLeft())
+		});	
+	
+		var websocket ;
+		var url=window.location.href.replace("sync.html","websocket").replace("http","ws");
+		//判断当前浏览器是否支持WebSocket
+		if ('WebSocket' in window) {
+			websocket = new WebSocket(url);
+		} else {
+			alert("不支持WEBSOCKET")
+		};
+	
+		//连接发生错误的回调方法
+		websocket.onerror = function() {
+			setMessageInnerHTML("error");
+		};
+	
+		//连接成功建立的回调方法
+		 websocket.onopen = function(event){
+		};
+	
+		//接收到消息的回调方法
+		websocket.onmessage = function(event) {
+			setMessageInnerHTML(event.data)
+			addEvent(event.data);
+		};
+	
+		//连接关闭的回调方法
+		websocket.onclose = function() {
+			setMessageInnerHTML("断开连接，对方将不再收到你的消息");
+		};
+	
+		//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+		window.onbeforeunload = function() {
+			websocket.close();
+		};
+		function sendMsg(msg){
+			websocket.send(msg);
+		}
+		
+		function setMessageInnerHTML(message) {
+			console.log(message);
+		}
+		
+		function addEvent(msg){
+			var instruct = msg.split(",");
+			console.log(msg)
+			if(instruct.length == 3){
+				$(window).scrollTop(instruct[1]);
+				$(window).scrollLeft(instruct[2]);
+			}
+			
+		}
+		function getUrlString(name){
+			var reg = new RegExp("(^|\\?|&)"+name+"=([^&]*)(\\s|&|$)","i");
+			if(reg.test(decodeURI(location.href)))
+			return unescape(RegExp.$2.replace(/\+/g," "));
+		}
+	</script>
+</body>
+</html>
