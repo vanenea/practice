@@ -12,7 +12,6 @@ public class MenuTestDrive {
 		
 		allMenu.add(pancakeHouseMenu);
 		allMenu.add(dinerMenu);
-		allMenu.add(dinerMenu);
 		allMenu.add(cafeMenu);
 		
 		
@@ -22,6 +21,6 @@ public class MenuTestDrive {
 		cafeMenu.add(new MenuItem("bbb", "bbb", true, 9.36));
 		cafeMenu.add(dessertMenu);
 		
-		
+		allMenu.print();
 	}
 }

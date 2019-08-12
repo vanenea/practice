@@ -16,7 +16,7 @@ public class Menu extends MenuComponent {
 	}
 	
 	public void add(MenuComponent menuComponent) {
-		menuComponent.add(menuComponent);
+		this.menuComponent.add(menuComponent);
 	}
 	
 	public void remove(MenuComponent menuComponent) {
