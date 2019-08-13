@@ -83,7 +83,7 @@ public class WebSocketServer {
     @OnError
     public void onError(Session session, Throwable error) {
     	LOGGER.error("发生错误");
-        //error.printStackTrace();
+        error.printStackTrace();
     }
 	/**
 	 * 实现服务器主动推送
