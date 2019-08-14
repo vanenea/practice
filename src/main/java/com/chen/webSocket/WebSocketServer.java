@@ -40,16 +40,12 @@ public class WebSocketServer {
         webSocketSet.add(this);     //加入set中
         addOnlineCount();           //在线数加1
         List<String> list = session.getRequestParameterMap().get("id");
-        if(list.size()>0)
+        if(list != null && list.size()>0)
         	this.id= list.get(0);
         else
         	this.id = String.valueOf(new Random().nextInt(100000));
         LOGGER.info("有新窗口开始监听:"+id+",当前在线人数为" + getOnlineCount());
-        try {
-        	 sendMessage("连接成功");
-        } catch (IOException e) {
-        	LOGGER.error("websocket IO异常");
-        }
+      
     }
 
     /**
@@ -93,8 +89,9 @@ public class WebSocketServer {
 	/**
 	 * 实现服务器主动推送
 	 */
-    public void sendMessage(String message) throws IOException {
-        this.session.getBasicRemote().sendText(message);
+    public synchronized void sendMessage(String message) throws IOException {
+    		this.session.getAsyncRemote().sendText(message);
+		
     }
 
 
