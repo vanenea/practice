@@ -1,6 +1,8 @@
 package com.chen.webSocket;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
@@ -37,8 +39,11 @@ public class WebSocketServer {
         this.session = session;
         webSocketSet.add(this);     //加入set中
         addOnlineCount();           //在线数加1
-        this.id= session.getRequestParameterMap().get("id").get(0);
-        
+        List<String> list = session.getRequestParameterMap().get("id");
+        if(list.size()>0)
+        	this.id= list.get(0);
+        else
+        	this.id = String.valueOf(new Random().nextInt(100000));
         LOGGER.info("有新窗口开始监听:"+id+",当前在线人数为" + getOnlineCount());
         try {
         	 sendMessage("连接成功");
