@@ -15,4 +15,36 @@ public class GumballMachine {
 			state = NO_QUARTER;
 		}
 	}
+	
+	/**
+	 * 投钞票
+	 */
+	public void insertQuarter() {
+		if(state == SOLD_OUT) {
+			System.out.println("You can't insert a quarter, the machine is sold out");
+		} else if(state == NO_QUARTER) {
+			state = HAS_QUARTER;
+			System.out.println("You inserted a quarter");
+		} else if(state == HAS_QUARTER) {
+			System.out.println("You can't insert another quarter");
+		} else if(state == SOLD) {
+			System.out.println("Please wait, we're already giving you a gumball");
+		}
+	}
+	
+	/**
+	 * 退钱
+	 */
+	public void ejectQuarter() {
+		if(state == SOLD_OUT) {
+			System.out.println("you can't eject, you haven't inserted a quarter yet");
+		} else if(state == NO_QUARTER) {
+			System.out.println("you don't inserted quarter");
+		} else if(state == HAS_QUARTER) {
+			System.out.println("Quarter returned");
+			state = NO_QUARTER;
+		} else if(state == SOLD) {
+			System.out.println("Sorry, you already turned the crank");
+		}
+	}
 }
