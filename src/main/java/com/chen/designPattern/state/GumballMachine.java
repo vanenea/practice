@@ -47,4 +47,40 @@ public class GumballMachine {
 			System.out.println("Sorry, you already turned the crank");
 		}
 	}
+	
+	/**
+	 * 摇动手柄
+	 */
+	public void turnCrank() {
+		if(state == SOLD) {
+			System.out.println("Turning twice doesn't get you another gumball!");
+		} else if(state == NO_QUARTER) {
+			System.out.println("You turned but there's no quarter");
+		} else if(state == SOLD_OUT) {
+			System.out.println("You turned but there's no quarter");
+		} else if(state == HAS_QUARTER) {
+			System.out.println("You turned...");
+			state  = SOLD;
+			dispense();
+		}
+	}
+	
+	public void dispense() {
+		if(state == SOLD) {
+			System.out.println("A gumball comes rolling out the solt");
+			count -= 1;
+			if(count == 0) {
+				System.out.println("Oops, out of gumballs!");
+				state = SOLD_OUT;
+			} else {
+				state = NO_QUARTER;
+			}
+		} else if(state == SOLD_OUT) {
+			System.out.println("No gumball dispensed");
+		} else if(state == NO_QUARTER) {
+			System.out.println("You need to pay first");
+		} else if(state == HAS_QUARTER) {
+			System.out.println("No gumball dispensed");
+		}
+	}
 }
