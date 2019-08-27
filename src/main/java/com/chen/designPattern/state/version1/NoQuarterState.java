@@ -10,13 +10,14 @@ public class NoQuarterState implements State {
 	
 	@Override
 	public void insertQuarter() {
-		// TODO Auto-generated method stub
+		System.out.println("Insert quarter");
+		//TODO
 		
 	}
 
 	@Override
 	public void ejectQuarter() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
