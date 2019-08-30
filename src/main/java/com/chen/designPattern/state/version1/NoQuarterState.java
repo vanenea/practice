@@ -17,20 +17,17 @@ public class NoQuarterState implements State {
 
 	@Override
 	public void ejectQuarter() {
-		
-		
+		System.out.println("You haven't inserted a quarter");
 	}
 
 	@Override
 	public void turnCrank() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("You turned, but there's no quarter");
 	}
 
 	@Override
 	public void dispense() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("You need to play first");
 	}
 
 }
