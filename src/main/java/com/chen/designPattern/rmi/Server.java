@@ -10,7 +10,7 @@ public class Server {
 		try {
 			Hello hello = new HelloImpl();
 			LocateRegistry.createRegistry(9999);
-			Naming.bind("//127.0.0.1:9999/wbh", hello);
+			Naming.bind("//127.0.0.1:9999/jackMa", hello);
 			System.out.println("Server start!!!");
 		} catch (Exception e) {
 			e.printStackTrace();
