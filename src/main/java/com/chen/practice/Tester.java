@@ -3,15 +3,21 @@ package com.chen.practice;
 public class Tester {
 
 	public static void main(String[] args) throws Exception {
-		
-		System.out.println(reverse2(-5293));
-		
-		//System.out.println(Integer.parseInt("9646324351", 32));
-		System.out.println(Integer.MAX_VALUE);
-		int a = 9;
-		System.out.println((a /=10));
+		Tester tester = new Tester();
+		tester.removeDuplicates(new int[] {1,1,2,3});
 	}
 	
+	public int removeDuplicates(int[] nums) {
+	    if (nums.length == 0) return 0;
+	    int i = 0;
+	    for (int j = 1; j < nums.length; j++) {
+	        if (nums[j] != nums[i]) {
+	            i++;
+	            nums[i] = nums[j];
+	        }
+	    }
+	    return i + 1;
+	}
 	public static int reverse(int x) {
         boolean negative = false;
         if(x<0){
