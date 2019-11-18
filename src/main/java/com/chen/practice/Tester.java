@@ -4,7 +4,7 @@ public class Tester {
 
 	public static void main(String[] args) throws Exception {
 		Tester tester = new Tester();
-		tester.removeDuplicates(new int[] {1,1,2,3});
+		System.out.println(tester.removeDuplicates1(new int[] {1,1,2,3}));;
 	}
 	
 	public int removeDuplicates(int[] nums) {
@@ -18,6 +18,19 @@ public class Tester {
 	    }
 	    return i + 1;
 	}
+	
+	
+	 public int removeDuplicates1(int[] nums) {
+	        if(nums.length == 0) return 0;
+	        int j = nums.length;
+	        for(int i=0; i<nums.length; i++){
+	            if(i<nums.length-2 && nums[i]==nums[i+1]){
+	                j--;
+	            }
+	        }
+	        return j;
+	    }
+	
 	public static int reverse(int x) {
         boolean negative = false;
         if(x<0){
