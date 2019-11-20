@@ -1,6 +1,8 @@
 package com.chen.designPattern.observer;
 
-public interface Observer {
+public abstract class Observer {
 
-	void update(float temperature, float humidity);
+	protected NumberSubject subject;
+	
+	abstract void update();
 }
