@@ -254,7 +254,7 @@ public class Leetcode {
 	    return i + 1;
     }
    
-    public int[] plusOne(int[] digits) {
+    public static int[] plusOne(int[] digits) {
        for(int i=digits.length-1; i>=0; i--) {
     	   if(digits[i] != 9) {
     		   digits[i] ++ ;
@@ -263,7 +263,20 @@ public class Leetcode {
     		   digits[i] = 0;
     	   }
        }
-       System.arraycopy(digits, 0, digits, 0, 1);
+       
+      
+	   int[] out = new int[digits.length+1];
+	   for(int i=out.length-1; i>=0; i--) {
+		   if(i==0) {
+			   out[0]=1;
+		   } else {
+			   out[i] = digits[i-1];
+		   }
+		   
+	   }
+	   return out;
+       
+      
     }
     
     public static void main(String[] args) {
@@ -272,6 +285,11 @@ public class Leetcode {
 		System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
 		System.out.println(removeDuplicates(new int[] {1,1,2,3,1}));
 		System.out.println(removeDuplicatesTemp(new int[] {1,1,2,3,1}));
+		int[] plusOne = plusOne(new int[] {9,9,9,9});
+		for(int i=0; i<plusOne.length; i++) {
+			System.out.print(plusOne[i]);
+		}
+		
 	}
 	
 }
