@@ -1,72 +1,70 @@
 package com.chen.practice;
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 public class Tester {
 
 	public static void main(String[] args) throws Exception {
-		Tester tester = new Tester();
-		System.out.println(tester.removeDuplicates1(new int[] {1,1,2,3}));;
+		String xmlstr = jsonToXml("{\"class\": {\"student\": [{\"age\": \"18\",\"gender\": \"男\",\"name\": \"张三\",\"qk\": [{\"q1\": \"001\",\"q2\": \"002\",\"q3\": \"003\"},{\"q1\": \"001\",\"q2\": \"002\",\"q3\": \"003\"}]},{\"age\": \"17\",\"gender\": \"男\",\"name\": \"李四\",\"qk\": {\"q1\": \"005\",\"q2\": \"006\",\"q3\": \"007\"}},{\"age\": \"19\",\"gender\": \"女\",\"name\": \"王五\",\"qk\": {\"q1\": \"008\",\"q2\": \"009\",\"q3\": \"010\"}}]}}");
+        System.out.println(xmlstr);
 	}
 	
-	public int removeDuplicates(int[] nums) {
-	    if (nums.length == 0) return 0;
-	    int i = 0;
-	    for (int j = 1; j < nums.length; j++) {
-	        if (nums[j] != nums[i]) {
-	            i++;
-	            nums[i] = nums[j];
-	        }
-	    }
-	    return i + 1;
-	}
-	
-	
-	 public int removeDuplicates1(int[] nums) {
-	        if(nums.length == 0) return 0;
-	        int j = nums.length;
-	        for(int i=0; i<nums.length; i++){
-	            if(i<nums.length-2 && nums[i]==nums[i+1]){
-	                j--;
-	            }
-	        }
-	        return j;
-	    }
-	
-	public static int reverse(int x) {
-        boolean negative = false;
-        if(x<0){
-            negative = true;
-        }    
-
-        String[] strs = Integer.toString(x).split("");
-        for(int i=0; i<strs.length/2; i++){
-            if(negative){
-                String temp = strs[i+1];
-                strs[i+1] = strs[strs.length-i-1];
-                strs[strs.length-i-1] = temp;
-            } else {
-                String temp = strs[i];
-                strs[i] = strs[strs.length-i-1];
-                strs[strs.length-i-1] = temp;
+	 /**
+     * Json to xml string.
+     *
+     * @param json the json
+     * @return the string
+     */
+    public static String jsonToXml(String json){
+        try {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+            JSONObject jObj = JSON.parseObject(json);
+            jsonToXmlstr(jObj,buffer);
+            return buffer.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+ 
+ 
+    /**
+     * Json to xmlstr string.
+     *
+     * @param jObj   the j obj
+     * @param buffer the buffer
+     * @return the string
+     */
+    public static String jsonToXmlstr(JSONObject jObj,StringBuffer buffer ){
+        Set<Map.Entry<String, Object>> se = jObj.entrySet();
+        for(Iterator<Map.Entry<String, Object>> it = se.iterator(); it.hasNext(); )
+        {
+            Map.Entry<String, Object> en = it.next();
+            if(en.getValue().getClass().getName().equals("com.alibaba.fastjson.JSONObject")){
+                buffer.append("<"+en.getKey()+">");
+                JSONObject jo = jObj.getJSONObject(en.getKey());
+                jsonToXmlstr(jo,buffer);
+                buffer.append("</"+en.getKey()+">");
+            }else if(en.getValue().getClass().getName().equals("com.alibaba.fastjson.JSONArray")){
+                JSONArray jarray = jObj.getJSONArray(en.getKey());
+                for (int i = 0; i < jarray.size(); i++) {
+                    buffer.append("<"+en.getKey()+">");
+                    JSONObject jsonobject =  jarray.getJSONObject(i);
+                    jsonToXmlstr(jsonobject,buffer);
+                    buffer.append("</"+en.getKey()+">");
+                }
+            }else if(en.getValue().getClass().getName().equals("java.lang.String")){
+                buffer.append("<"+en.getKey()+">"+en.getValue());
+                buffer.append("</"+en.getKey()+">");
             }
         }
-        String str = "";
-        for(int i=0; i<strs.length; i++){
-            str += strs[i];
-        }
-        
-        return Integer.parseInt(str);
-        
+        return buffer.toString();
     }
-	
-	   public static int reverse2(int x) {
-	        int rev = 0;
-	        while (x != 0) {
-	            int pop = x % 10;
-	            x /= 10;
-	            if (rev > Integer.MAX_VALUE/10 || (rev == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
-	            if (rev < Integer.MIN_VALUE/10 || (rev == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
-	            rev = rev * 10 + pop;
-	        }
-	        return rev;
-	    }
 }
