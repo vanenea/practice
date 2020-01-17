@@ -1,7 +1,9 @@
 package com.chen.practice;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -12,6 +14,68 @@ import java.util.Stack;
  *
  */
 public class Leetcode {
+	public static void main(String[] args) {
+		System.out.println(reverse(-123));
+		System.out.println(romanToInt("MCMXCIV"));
+		System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
+		System.out.println(removeDuplicates(new int[] {1,1,2,3,1}));
+		System.out.println(removeDuplicatesTemp(new int[] {1,1,2,3,1}));
+		int[] plusOne = plusOne(new int[] {9,9,9,9});
+		for(int i=0; i<plusOne.length; i++) {
+			System.out.print(plusOne[i]);
+		}
+		System.out.println("");
+		generate(10);
+		System.out.println(singleNumber(new int[] {10,186,-49,176,118,167,-61,189,6,-24,7,-93,71,112,187,45,-36,38,82,108,-46,112,51,165,-37,159,1,-53,7,38,90,181,-23,91,-42,172,-95,130,84,149,-47,68,126,-67,175,22,121,131,84,114,60,64,182,-75,-17,-71,69,-92,103,-91,-91,86,126,166,33,-36,-80,-37,118,-80,-18,127,36,-71,-82,-82,144,12,57,149,71,91,-83,-100,-30,45,186,16,-51,-72,-83,107,140,-97,-93,1,12,189,-61,-50,180,98,96,-29,193,167,57,-45,16,6,-76,4,109,-23,22,144,190,-97,193,-51,-99,-79,-47,142,107,175,109,121,190,90,34,32,63,-24,41,-53,41,89,130,-18,-99,103,86,127,-30,102,32,-49,181,-60,114,60,-29,182,-75,168,96,51,33,142,108,69,10,-57,166,48,82,161,-17,-50,102,63,-45,140,180,176,-95,36,-46,168,187,161,-72,-100,-42,165,-76,-67,89,159,64,34,98,4,-60,172,-79,68,48,131,-57}));
+	}
+	
+	
+	public static int singleNumber(int[] nums) {
+		String con = "";
+		for(int i = 0; i < nums.length-1; i++ ) {
+			if(con.indexOf("#"+String.valueOf(i) + "#")!=-1) continue;
+			for(int j = i+1; j < nums.length; j++) {
+				if(nums[i] == nums[j]) {
+					con += "#"+ j + "#";
+					break;
+				}
+				if(j==nums.length-1) return nums[i];
+			}
+		}
+		return nums[nums.length-1];
+	}
+
+	/*
+	 *  Pascal's Triangle Easy
+	 * Given a non-negative integer numRows, generate the first numRows of
+	 * Pascal's triangle.
+	 */    
+	public static List<List<Integer>> generate(int numRows) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+        for(int i = 0; i < numRows; i++ ) {
+        	List<Integer> list = new ArrayList<Integer>();
+        	if(i == 0) {
+        		list.add(1);
+        	} else {
+        		
+        		for(int j = 0; j<=result.get(i-1).size(); j++) {
+        			if(j == 0 || j== result.get(i-1).size()) {
+        				list.add(1);
+        			} else {
+        				List<Integer> list2 = result.get(i-1);
+        				Integer a1 = list2.get(j-1);
+        				Integer a2 = list2.get(j);
+        				list.add(a1 + a2);
+        			}
+        		}
+        		
+        	}
+        	result.add(list);
+        }
+        System.out.println(result);
+        return result;
+    }
+	
 
 	/**
 	 * Given a 32-bit signed integer, reverse digits of an integer.
@@ -279,17 +343,6 @@ public class Leetcode {
       
     }
     
-    public static void main(String[] args) {
-		System.out.println(reverse(-123));
-		System.out.println(romanToInt("MCMXCIV"));
-		System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
-		System.out.println(removeDuplicates(new int[] {1,1,2,3,1}));
-		System.out.println(removeDuplicatesTemp(new int[] {1,1,2,3,1}));
-		int[] plusOne = plusOne(new int[] {9,9,9,9});
-		for(int i=0; i<plusOne.length; i++) {
-			System.out.print(plusOne[i]);
-		}
-		
-	}
+    
 	
 }
