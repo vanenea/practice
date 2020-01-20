@@ -41,11 +41,11 @@ public class Leetcode {
 		if(n>=number) {
 			
 			for(int i = 1; i < number; i++) {
-				number /
+				//number /
 				
 			}
 		}
-		n
+		return 0;
     }
 	/**
 	 * happy number
