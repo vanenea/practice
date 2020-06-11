@@ -15,7 +15,66 @@ import java.util.Stack;
  */
 public class Leetcode {
     public static void main(String[] args) {
-        System.out.println(getRow1(5));
+        System.out.println(strStr("hello", "ll"));
+    }
+
+
+    /**
+     * The count-and-say sequence is the sequence of integers with the first five terms as following:
+     *
+     * 1.     1
+     * 2.     11
+     * 3.     21
+     * 4.     1211
+     * 5.     111221
+     * 1 is read off as "one 1" or 11.
+     * 11 is read off as "two 1s" or 21.
+     * 21 is read off as "one 2, then one 1" or 1211.
+     *
+     * Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively,
+     * in other words from the previous member read off the digits, counting the number of digits in groups of the same digit.
+     * @param n
+     * @return
+     */
+    public String countAndSay(int n) {
+        StringBuilder curr = new StringBuilder("1");
+        StringBuilder pre;
+        for (int i = 1; i < n; i++) {
+
+
+        }
+        return curr.toString();
+    }
+
+    /**
+     * Implement strStr().
+     * <p>
+     * Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+     * <p>
+     * Example 1:
+     * <p>
+     * Input: haystack = "hello", needle = "ll"
+     * Output: 2
+     * <p>
+     * Example 2:
+     * Input: haystack = "aaaaa", needle = "bba"
+     * Output: -1
+     *
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public static int strStr(String haystack, String needle) {
+
+        char[] chars = haystack.toCharArray();
+        char[] chars1 = needle.toCharArray();
+        for (int i = 0; ; i++) {
+            for (int j = 0; ; j++) {
+                if(j == needle.length()) return i;
+                if( i+j == haystack.length()) return -1;
+                if(chars1[j] != chars[i+j]) break;
+            }
+        }
     }
 
 
