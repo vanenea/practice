@@ -15,13 +15,60 @@ import java.util.Stack;
  */
 public class Leetcode {
     public static void main(String[] args) {
-        System.out.println(strStr("hello", "ll"));
+        fib(10);
     }
 
+    public static int fib(int n) {
+        int count = 0;
+        List<Integer> memo = new ArrayList<>(n);
+        if (n < 1) return 0;
+        if (n == 1 || n == 2) return 1;
+
+        return count;
+    }
+
+    public static int help() {
+      return  0;
+    }
+
+    public static int lengthOfLastWord1(String s) {
+        s = s.trim();
+        int lastIndex = s.lastIndexOf(" ") + 1;
+        return s.length() - lastIndex;
+    }
+
+    /**
+     * Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word (last word means the last appearing word if we loop from left to right) in the string.
+     * <p>
+     * If the last word does not exist, return 0.
+     * <p>
+     * Note: A word is defined as a maximal substring consisting of non-space characters only.
+     * <p>
+     * Example:
+     * <p>
+     * Input: "Hello World"
+     * Output: 5
+     *
+     * @param s
+     * @return
+     */
+    public static int lengthOfLastWord(String s) {
+        int count = 0;
+        s = s.trim();
+        char[] chars = s.toCharArray();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (' ' != chars[i]) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        return count;
+    }
 
     /**
      * The count-and-say sequence is the sequence of integers with the first five terms as following:
-     *
+     * <p>
      * 1.     1
      * 2.     11
      * 3.     21
@@ -30,9 +77,10 @@ public class Leetcode {
      * 1 is read off as "one 1" or 11.
      * 11 is read off as "two 1s" or 21.
      * 21 is read off as "one 2, then one 1" or 1211.
-     *
+     * <p>
      * Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively,
      * in other words from the previous member read off the digits, counting the number of digits in groups of the same digit.
+     *
      * @param n
      * @return
      */
@@ -70,9 +118,9 @@ public class Leetcode {
         char[] chars1 = needle.toCharArray();
         for (int i = 0; ; i++) {
             for (int j = 0; ; j++) {
-                if(j == needle.length()) return i;
-                if( i+j == haystack.length()) return -1;
-                if(chars1[j] != chars[i+j]) break;
+                if (j == needle.length()) return i;
+                if (i + j == haystack.length()) return -1;
+                if (chars1[j] != chars[i + j]) break;
             }
         }
     }
