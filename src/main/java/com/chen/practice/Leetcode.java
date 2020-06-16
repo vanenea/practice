@@ -14,22 +14,38 @@ import java.util.Stack;
  * @author Chen.Y
  */
 public class Leetcode {
+    static Map<Integer, Long>  param = new HashMap<>();
+
     public static void main(String[] args) {
-        fib(10);
+        long begin = System.currentTimeMillis();
+       // System.out.println(fib(1000));
+        long current = System.currentTimeMillis();
+        System.out.println("Time:" + (current - begin) / 1000);
+
+        long begin1 = System.currentTimeMillis();
+        System.out.println(fibBWL(1000));
+        long current1 = System.currentTimeMillis();
+        System.out.println("Time1:" + (current1 - begin1) / 1000);
     }
 
-    public static int fib(int n) {
-        int count = 0;
-        List<Integer> memo = new ArrayList<>(n);
+    public static long fibBWL(int n) {
         if (n < 1) return 0;
         if (n == 1 || n == 2) return 1;
 
-        return count;
+        if (param.get(n) != null) {
+            return param.get(n);
+        } else {
+            param.put(n, fibBWL(n - 1) + fibBWL(n - 2));
+            return param.get(n);
+        }
     }
 
-    public static int help() {
-      return  0;
+    public static long fib(int n) {
+        if (n < 1) return 0;
+        if (n == 1 || n == 2) return 1;
+        return fib(n - 1) + fib(n - 2);
     }
+
 
     public static int lengthOfLastWord1(String s) {
         s = s.trim();
