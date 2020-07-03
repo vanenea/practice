@@ -11,9 +11,30 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        permute(new int[]{1,2,3});
+        permute(new int[]{1, 2, 3});
         System.out.println(res);
     }
+
+    /**
+     * Given two binary strings, return their sum (also a binary string).
+     * <p>
+     * The input strings are both non-empty and contains only characters 1 or 0.
+     * <p>
+     * Example 1:
+     * <p>
+     * Input: a = "11", b = "1"
+     * Output: "100"
+     * Example 2:
+     * <p>
+     * Input: a = "1010", b = "1011"
+     * Output: "10101"
+     */
+    public String addBinary(String a, String b) {
+       StringBuilder sb = new StringBuilder();
+       int a1 = a.length() - 1, b2 = b.length() - 1, carry = 0;
+       return null;
+    }
+
 
     static List<List<Integer>> res = new LinkedList<>();
 
