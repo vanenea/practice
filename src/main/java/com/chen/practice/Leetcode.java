@@ -11,8 +11,7 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        permute(new int[]{1, 2, 3});
-        System.out.println(res);
+        System.out.println(addBinary("11", "11"));
     }
 
     /**
@@ -29,10 +28,19 @@ public class Leetcode {
      * Input: a = "1010", b = "1011"
      * Output: "10101"
      */
-    public String addBinary(String a, String b) {
-       StringBuilder sb = new StringBuilder();
-       int a1 = a.length() - 1, b2 = b.length() - 1, carry = 0;
-       return null;
+    public static String addBinary(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+        int a1 = a.length() - 1, b2 = b.length() - 1, carry = 0;
+        while (a1 >= 0 || b2 >= 0) {
+            int sum = carry;
+            if (a1 >= 0) sum += a.charAt(a1--) - '0';
+            if (b2 >= 0) sum += b.charAt(b2--) - '0';
+            carry = sum % 2;
+            sb.append(carry);
+            carry = sum / 2;
+        }
+        if (carry != 0) sb.append(carry);
+        return sb.reverse().toString();
     }
 
 
