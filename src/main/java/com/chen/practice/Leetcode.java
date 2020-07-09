@@ -11,7 +11,34 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println(addBinary("11", "11"));
+        System.out.println(mySqrt(5));
+    }
+
+    /**
+     * Implement int sqrt(int x).
+     * <p>
+     * Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
+     * <p>
+     * Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+     * <p>
+     * Example 1:
+     * <p>
+     * Input: 4
+     * Output: 2
+     * Example 2:
+     * <p>
+     * Input: 8
+     * Output: 2
+     * Explanation: The square root of 8 is 2.82842..., and since
+     * the decimal part is truncated, 2 is returned.
+     */
+    public static int mySqrt(int x) {
+        if (x == 0) return 0;
+        for (int i = 1; i <= (x % 2 > 0 ? x / 2 + 1 : x / 2); i++) {
+            if (i * i > x) return i - 1;
+            if (i * i == x) return i;
+        }
+        return 1;
     }
 
     /**
