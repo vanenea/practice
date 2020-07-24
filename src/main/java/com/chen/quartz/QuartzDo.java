@@ -21,7 +21,7 @@ public class QuartzDo {
 				build();
 		
 		Trigger trigger = TriggerBuilder.newTrigger().startNow()
-				.withSchedule(CronScheduleBuilder.cronSchedule("0/2 * * * * ?"))
+				.withSchedule(CronScheduleBuilder.cronSchedule("*/5 * * * * ?"))
 				.build();
 //		Trigger trigger1 = TriggerBuilder.newTrigger().startNow()
 //				.withSchedule(SimpleScheduleBuilder.simpleSchedule().withRepeatCount(0))
