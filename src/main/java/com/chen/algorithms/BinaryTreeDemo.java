@@ -63,8 +63,9 @@ public class BinaryTreeDemo<Key extends Comparable<Key>, Value> {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (root != null) {
-            sb.append("=");
+            sb.append(root.key + "=" + root.value);
         }
+
         return sb.toString();
     }
 
