@@ -16,6 +16,31 @@ public class Leetcode {
     }
 
     /**
+     * 121. Best Time to Buy and Sell Stock
+     * Share
+     * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+     * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+     * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+     * Example 1:
+     * Input: prices = [7,1,5,3,6,4]
+     * Output: 5
+     * Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+     * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+     * Example 2:
+     * Input: prices = [7,6,4,3,1]
+     * Output: 0
+     * Explanation: In this case, no transactions are done and the max profit = 0.
+     */
+    public int maxProfit(int[] prices) {
+        int maxSum = 0, maxFar = 0;
+        for(int i = 1; i< prices.length; i++){
+           maxSum = Math.max(maxSum, maxSum + (prices[i]-prices[i-1]));
+           maxFar = Math.max(maxFar, maxSum);
+        }
+        return maxFar;
+    }
+
+    /**
      * 88. Merge Sorted Array
      * Easy
      * Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
