@@ -11,8 +11,61 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println(maxProfit(new int[]{7,1,5,3,6,4}));
+        System.out.println(maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
     }
+
+    /**
+     * 122. Best Time to Buy and Sell Stock II
+     * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+     * Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
+     * Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
+     * Example 1:
+     * Input: prices = [7,1,5,3,6,4]
+     * Output: 7
+     * Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+     * Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+     * Example 2:
+     * Input: prices = [1,2,3,4,5]
+     * Output: 4
+     * Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
+     * Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are engaging multiple transactions at the same time. You must sell before buying again.
+     * Example 3:
+     * <p>
+     * Input: prices = [7,6,4,3,1]
+     * Output: 0
+     * Explanation: In this case, no transaction is done, i.e., max profit = 0.
+     */
+    public static int maxProfit2(int[] prices) {
+        int maxSum = 0, maxFar = 0;
+        for (int i = 1; i < prices.length; i++) {
+            maxSum = Math.max(0, prices[i] - prices[i - 1]);
+            maxFar += maxSum;
+        }
+        return maxFar;
+    }
+
+    /**
+     * 125. Valid Palindrome
+     * Add to List
+     * Share
+     * Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+     * Example 1:
+     * Input: s = "A man, a plan, a canal: Panama"
+     * Output: true
+     * Explanation: "amanaplanacanalpanama" is a palindrome.
+     * Example 2:
+     * Input: s = "race a car"
+     * Output: false
+     * Explanation: "raceacar" is not a palindrome.
+     */
+    public static boolean isPalindrome(String s) {
+        int begin = 0, tail = s.length() - 1;
+        while (begin < tail) {
+
+        }
+        return false;
+    }
+
 
     /**
      * 121. Best Time to Buy and Sell Stock
@@ -32,9 +85,9 @@ public class Leetcode {
      */
     public static int maxProfit(int[] prices) {
         int maxSum = 0, maxFar = 0;
-        for(int i = 1; i< prices.length; i++){
-           maxSum = Math.max(0, maxSum + (prices[i]-prices[i-1]));
-           maxFar = Math.max(maxFar, maxSum);
+        for (int i = 1; i < prices.length; i++) {
+            maxSum = Math.max(0, maxSum + (prices[i] - prices[i - 1]));
+            maxFar = Math.max(maxFar, maxSum);
         }
         return maxFar;
     }
