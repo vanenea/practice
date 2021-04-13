@@ -11,8 +11,7 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        merge(new int[]{1,2,3,0,0,0}, 3, new int[]{2,5,6},3);
-
+        System.out.println(maxProfit(new int[]{7,1,5,3,6,4}));
     }
 
     /**
@@ -31,10 +30,10 @@ public class Leetcode {
      * Output: 0
      * Explanation: In this case, no transactions are done and the max profit = 0.
      */
-    public int maxProfit(int[] prices) {
+    public static int maxProfit(int[] prices) {
         int maxSum = 0, maxFar = 0;
         for(int i = 1; i< prices.length; i++){
-           maxSum = Math.max(maxSum, maxSum + (prices[i]-prices[i-1]));
+           maxSum = Math.max(0, maxSum + (prices[i]-prices[i-1]));
            maxFar = Math.max(maxFar, maxSum);
         }
         return maxFar;
