@@ -61,7 +61,7 @@ public class Leetcode {
     public static boolean isPalindrome(String s) {
         int begin = 0, tail = s.length() - 1;
         while (begin < tail) {
-
+            char a1 = s.charAt(begin);
         }
         return false;
     }
