@@ -11,8 +11,227 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println(mySqrt(5));
+        System.out.println(maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
     }
+
+    /**
+     * 122. Best Time to Buy and Sell Stock II
+     * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+     * Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
+     * Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
+     * Example 1:
+     * Input: prices = [7,1,5,3,6,4]
+     * Output: 7
+     * Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+     * Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+     * Example 2:
+     * Input: prices = [1,2,3,4,5]
+     * Output: 4
+     * Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
+     * Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are engaging multiple transactions at the same time. You must sell before buying again.
+     * Example 3:
+     * <p>
+     * Input: prices = [7,6,4,3,1]
+     * Output: 0
+     * Explanation: In this case, no transaction is done, i.e., max profit = 0.
+     */
+    public static int maxProfit2(int[] prices) {
+        int maxSum = 0, maxFar = 0;
+        for (int i = 1; i < prices.length; i++) {
+            maxSum = Math.max(0, prices[i] - prices[i - 1]);
+            maxFar += maxSum;
+        }
+        return maxFar;
+    }
+
+    /**
+     * 125. Valid Palindrome
+     * Add to List
+     * Share
+     * Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+     * Example 1:
+     * Input: s = "A man, a plan, a canal: Panama"
+     * Output: true
+     * Explanation: "amanaplanacanalpanama" is a palindrome.
+     * Example 2:
+     * Input: s = "race a car"
+     * Output: false
+     * Explanation: "raceacar" is not a palindrome.
+     */
+    public static boolean isPalindrome(String s) {
+        int begin = 0, tail = s.length() - 1;
+        while (begin < tail) {
+            char a1 = s.charAt(begin);
+        }
+        return false;
+    }
+
+
+    /**
+     * 121. Best Time to Buy and Sell Stock
+     * Share
+     * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+     * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+     * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+     * Example 1:
+     * Input: prices = [7,1,5,3,6,4]
+     * Output: 5
+     * Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+     * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+     * Example 2:
+     * Input: prices = [7,6,4,3,1]
+     * Output: 0
+     * Explanation: In this case, no transactions are done and the max profit = 0.
+     */
+    public static int maxProfit(int[] prices) {
+        int maxSum = 0, maxFar = 0;
+        for (int i = 1; i < prices.length; i++) {
+            maxSum = Math.max(0, maxSum + (prices[i] - prices[i - 1]));
+            maxFar = Math.max(maxFar, maxSum);
+        }
+        return maxFar;
+    }
+
+    /**
+     * 88. Merge Sorted Array
+     * Easy
+     * Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+     * <p>
+     * The number of elements initialized in nums1 and nums2 are m and n respectively. You may assume that nums1 has a size equal to m + n such that it has enough space to hold additional elements from nums2.
+     * Example 1:
+     * <p>
+     * Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+     * Output: [1,2,2,3,5,6]
+     * Example 2:
+     * <p>
+     * Input: nums1 = [1], m = 1, nums2 = [], n = 0
+     * Output: [1]
+     */
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        List<Integer> list = new ArrayList<>();
+
+        int i = 0, j = 0;
+        while (true) {
+            if (i == m || j == n) {
+                break;
+            }
+            if (nums1[i] < nums2[j]) {
+                list.add(nums1[i]);
+                i++;
+            } else if (nums1[i] > nums2[j]) {
+                list.add(nums2[j]);
+                j++;
+            } else {
+                list.add(nums1[i]);
+                list.add(nums2[j]);
+                i++;
+                j++;
+            }
+        }
+        if (i < m) {
+            for (; i < m; i++) {
+                list.add(nums1[1]);
+            }
+            for (; j < n; j++) {
+                list.add(nums2[j]);
+            }
+        }
+        nums1 = new int[list.size()];
+        for (int k = 0; k < list.size(); k++) {
+            nums1[k] = list.get(k);
+        }
+    }
+
+    /**
+     * 888. 公平的糖果棒交换
+     * 爱丽丝和鲍勃有不同大小的糖果棒：A[i] 是爱丽丝拥有的第 i 根糖果棒的大小，B[j] 是鲍勃拥有的第 j 根糖果棒的大小。
+     * <p>
+     * 因为他们是朋友，所以他们想交换一根糖果棒，这样交换后，他们都有相同的糖果总量。（一个人拥有的糖果总量是他们拥有的糖果棒大小的总和。）
+     * <p>
+     * 返回一个整数数组 ans，其中 ans[0] 是爱丽丝必须交换的糖果棒的大小，ans[1] 是 Bob 必须交换的糖果棒的大小。
+     * <p>
+     * 如果有多个答案，你可以返回其中任何一个。保证答案存在。
+     * <p>
+     * 示例 1：
+     * <p>
+     * 输入：A = [1,1], B = [2,2]
+     * 输出：[1,2]
+     * 示例 2：
+     * <p>
+     * 输入：A = [1,2], B = [2,3]
+     * 输出：[1,2]
+     * 示例 3：
+     * <p>
+     * 输入：A = [2], B = [1,3]
+     * 输出：[2,3]
+     * 示例 4：
+     * <p>
+     * 输入：A = [1,2,5], B = [2,4]
+     * 输出：[5,4]
+     */
+    public static int[] fairCandySwap(int[] A, int[] B) {
+        int cz = Arrays.stream(A).sum() - Arrays.stream(B).sum();
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < B.length; j++) {
+                if (A[i] - B[j] == cz / 2) {
+                    return new int[]{A[i], B[j]};
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 724. 寻找数组的中心索引
+     * 给你一个整数数组 nums，请编写一个能够返回数组 “中心索引” 的方法。
+     * <p>
+     * 数组 中心索引 是数组的一个索引，其左侧所有元素相加的和等于右侧所有元素相加的和。
+     * <p>
+     * 如果数组不存在中心索引，返回 -1 。如果数组有多个中心索引，应该返回最靠近左边的那一个。
+     * <p>
+     * 注意：中心索引可能出现在数组的两端。
+     * <p>
+     * 示例 1：
+     * <p>
+     * 输入：nums = [1, 7, 3, 6, 5, 6]
+     * 输出：3
+     * 解释：
+     * 索引 3 (nums[3] = 6) 的左侧数之和 (1 + 7 + 3 = 11)，与右侧数之和 (5 + 6 = 11) 相等。
+     * 同时, 3 也是第一个符合要求的中心索引。
+     * 示例 2：
+     * <p>
+     * 输入：nums = [1, 2, 3]
+     * 输出：-1
+     * 解释：
+     * 数组中不存在满足此条件的中心索引。
+     * 示例 3：
+     * <p>
+     * 输入：nums = [2, 1, -1]
+     * 输出：0
+     * 解释：
+     * 索引 0 左侧不存在元素，视作和为 0 ；右侧数之和为 1 + (-1) = 0 ，二者相等。
+     * 示例 4：
+     * <p>
+     * 输入：nums = [0, 0, 0, 0, 1]
+     * 输出：4
+     * 解释：
+     * 索引 4 左侧数之和为 0 ；右侧不存在元素，视作和为 0 ，二者相等。
+     *
+     * @param nums
+     * @return
+     */
+    public int pivotIndex(int[] nums) {
+        int total = Arrays.stream(nums).sum();
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (2 * sum + nums[i] == total) {
+                return i;
+            }
+            sum += nums[i];
+        }
+        return -1;
+    }
+
 
     /**
      * Implement int sqrt(int x).
@@ -30,6 +249,7 @@ public class Leetcode {
      * Input: 8
      * Output: 2
      * Explanation: The square root of 8 is 2.82842..., and since
+     * .+
      * the decimal part is truncated, 2 is returned.
      */
     public static int mySqrt(int x) {
