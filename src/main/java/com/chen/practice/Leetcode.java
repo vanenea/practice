@@ -11,7 +11,7 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println(maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(isPalindrome("race a car"));
     }
 
     /**
@@ -59,11 +59,29 @@ public class Leetcode {
      * Explanation: "raceacar" is not a palindrome.
      */
     public static boolean isPalindrome(String s) {
-        int begin = 0, tail = s.length() - 1;
-        while (begin < tail) {
-            char a1 = s.charAt(begin);
+        int first = 0;
+        int second = s.length() - 1;
+        while (first < second){
+            Character f = s.charAt(first);
+            Character ss = s.charAt(second);
+            while (!Character.isLetterOrDigit(f) && first < second) {
+                first++;
+                f = s.charAt(first);
+            }
+            while (!Character.isLetterOrDigit(ss)  && first < second){
+                second -- ;
+                ss = s.charAt(second);
+            }
+
+            if(Character.isLetterOrDigit(f) && Character.isLetterOrDigit(ss)){
+                if(!String.valueOf(f).equalsIgnoreCase(String.valueOf(ss))){
+                    return false;
+                }
+            }
+            first++;
+            second -- ;
         }
-        return false;
+        return true;
     }
 
 
