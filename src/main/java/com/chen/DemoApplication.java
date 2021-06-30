@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@EnableAutoConfiguration
 @EnableScheduling
 public class DemoApplication {
 	
