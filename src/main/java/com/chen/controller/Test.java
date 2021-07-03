@@ -1,14 +1,10 @@
 package com.chen.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
-import javax.annotation.Resource;
-import javax.jms.Destination;
-
-import cn.hutool.core.lang.copier.SrcToDestCopier;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.chen.activemq.Producer;
+import com.chen.configuration.PropertiesConfig;
+import com.chen.utils.ResponseResult;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -17,11 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.chen.activemq.Producer;
-import com.chen.configuration.PropertiesConfig;
-import com.chen.utils.ResponseResult;
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class Test {
