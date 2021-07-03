@@ -11,8 +11,37 @@ public class Leetcode {
     static Map<Integer, Long> param = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println(maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(isPalindrome("race a car"));
     }
+
+    /**
+     * 167. Two Sum II - Input array is sorted
+
+     * Given an array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number.
+     *
+     * Return the indices of the two numbers (1-indexed) as an integer array answer of size 2, where 1 <= answer[0] < answer[1] <= numbers.length.
+     *
+     * The tests are generated such that there is exactly one solution. You may not use the same element twice.
+     * Example 1:
+     *
+     * Input: numbers = [2,7,11,15], target = 9
+     * Output: [1,2]
+     * Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
+     * Example 2:
+     *
+     * Input: numbers = [2,3,4], target = 6
+     * Output: [1,3]
+     * Example 3:
+     *
+     * Input: numbers = [-1,0], target = -1
+     * Output: [1,2]
+     */
+    public int[] twoSum(int[] numbers, int target) {
+
+         return null;
+ 
+    }
+
 
     /**
      * 122. Best Time to Buy and Sell Stock II
@@ -59,11 +88,29 @@ public class Leetcode {
      * Explanation: "raceacar" is not a palindrome.
      */
     public static boolean isPalindrome(String s) {
-        int begin = 0, tail = s.length() - 1;
-        while (begin < tail) {
-            char a1 = s.charAt(begin);
+        int first = 0;
+        int second = s.length() - 1;
+        while (first < second){
+            Character f = s.charAt(first);
+            Character ss = s.charAt(second);
+            while (!Character.isLetterOrDigit(f) && first < second) {
+                first++;
+                f = s.charAt(first);
+            }
+            while (!Character.isLetterOrDigit(ss)  && first < second){
+                second -- ;
+                ss = s.charAt(second);
+            }
+
+            if(Character.isLetterOrDigit(f) && Character.isLetterOrDigit(ss)){
+                if(!String.valueOf(f).equalsIgnoreCase(String.valueOf(ss))){
+                    return false;
+                }
+            }
+            first++;
+            second -- ;
         }
-        return false;
+        return true;
     }
 
 
