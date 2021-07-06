@@ -14,6 +14,8 @@ public class HeapSpaceOOM {
             while (true) {
                 list.add(s);
                 i++;
+                System.out.println("wait...");
+                Thread.sleep(5000);
                 s = s + s;
             }
         } catch (Exception e) {
