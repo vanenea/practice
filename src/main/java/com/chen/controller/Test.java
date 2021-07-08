@@ -7,6 +7,7 @@ import com.chen.configuration.PropertiesConfig;
 import com.chen.utils.ResponseResult;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
@@ -122,12 +123,15 @@ public class Test {
                 "        }\r\n" +
                 "      ]\r\n" +
                 "  }";
-        System.out.printf(aa);
+        //System.out.printf(aa);
         JSONObject jo = JSON.parseObject(json);
 //		Map<String, Object> map = new HashMap<>();
 //		map.put("data", jo);
 //		jo.putAll(map);
 //		System.out.println(jo.toJSONString());
+        System.out.println(getAppSecret());
+        System.out.println(getAppSecret());
+        System.out.println(getAppSecret());
         ResponseResult<JSONObject> result = new ResponseResult<>(1, "返回数据成功", jo);
         return result;
     }
@@ -168,4 +172,10 @@ public class Test {
         System.out.println(random());
     }
 
+    @Cacheable(value = "AppSecret")
+	public String getAppSecret() {
+		System.out.println("1111111111");
+		String aaa = "1";
+		return aaa;
+	}
 }
