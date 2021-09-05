@@ -29,7 +29,7 @@ public class DirectMemory {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("directBuffer 用时: " + System.currentTimeMillis());
+        System.out.println("directBuffer 用时: " + (System.currentTimeMillis() - start));
     }
 
     private static void io() {
@@ -50,7 +50,7 @@ public class DirectMemory {
             e.printStackTrace();
         }
         long end = System.currentTimeMillis();
-        System.out.println("io 用时：" + (end-start));
+        System.out.println("io 用时：" + (end - start));
     }
 
 }
