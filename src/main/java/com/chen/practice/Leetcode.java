@@ -15,31 +15,60 @@ public class Leetcode {
     }
 
     /**
-     * 167. Two Sum II - Input array is sorted
+     * 2. Add Two Numbers
+     * Medium
+     * Add to List
+     *
+     * You are given two non-empty linked lists representing two non-negative integers.
+     * The digits are stored in reverse order, and each of their nodes contains a single digit.
+     * Add the two numbers and return the sum as a linked list.
+     *
+     * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+     */
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+            int sum1 = l1.val;
+            int i = 1;
+            while(l1.next != null) {
+                i = i*10;
+                sum1 += l1.next.val*i;
+            }
+            int sum2 = l2.val;
+            int i2 = 1;
+            while(l2.next != null) {
+                i2 = i2*10;
+                sum1 += l2.next.val*i2;
+            }
+            String sum = Integer.toString(sum1 + sum2);
+            ListNode ln = new ListNode();
+            return null;
+        }
 
+    /**
+     * 167. Two Sum II - Input array is sorted
+     * <p>
      * Given an array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number.
-     *
+     * <p>
      * Return the indices of the two numbers (1-indexed) as an integer array answer of size 2, where 1 <= answer[0] < answer[1] <= numbers.length.
-     *
+     * <p>
      * The tests are generated such that there is exactly one solution. You may not use the same element twice.
      * Example 1:
-     *
+     * <p>
      * Input: numbers = [2,7,11,15], target = 9
      * Output: [1,2]
      * Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
      * Example 2:
-     *
+     * <p>
      * Input: numbers = [2,3,4], target = 6
      * Output: [1,3]
      * Example 3:
-     *
+     * <p>
      * Input: numbers = [-1,0], target = -1
      * Output: [1,2]
      */
     public int[] twoSum(int[] numbers, int target) {
 
-         return null;
- 
+        return null;
+
     }
 
 
@@ -90,25 +119,25 @@ public class Leetcode {
     public static boolean isPalindrome(String s) {
         int first = 0;
         int second = s.length() - 1;
-        while (first < second){
+        while (first < second) {
             Character f = s.charAt(first);
             Character ss = s.charAt(second);
             while (!Character.isLetterOrDigit(f) && first < second) {
                 first++;
                 f = s.charAt(first);
             }
-            while (!Character.isLetterOrDigit(ss)  && first < second){
-                second -- ;
+            while (!Character.isLetterOrDigit(ss) && first < second) {
+                second--;
                 ss = s.charAt(second);
             }
 
-            if(Character.isLetterOrDigit(f) && Character.isLetterOrDigit(ss)){
-                if(!String.valueOf(f).equalsIgnoreCase(String.valueOf(ss))){
+            if (Character.isLetterOrDigit(f) && Character.isLetterOrDigit(ss)) {
+                if (!String.valueOf(f).equalsIgnoreCase(String.valueOf(ss))) {
                     return false;
                 }
             }
             first++;
-            second -- ;
+            second--;
         }
         return true;
     }
@@ -878,5 +907,20 @@ public class Leetcode {
 
     }
 
+    public class ListNode {
+        int val;
+        ListNode next;
 
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
 }
