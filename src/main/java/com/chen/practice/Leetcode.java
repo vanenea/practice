@@ -40,8 +40,15 @@ public class Leetcode {
         }
         String sum = Integer.toString(sum1 + sum2);
         ListNode ln = new ListNode();
-        for (int j = 0; j < sum.length(); j++) {
-                
+        if(sum.length()>0){
+            ln.val = sum.charAt(sum.length()-1);
+        }
+        ListNode tem;
+        for (int j = sum.length()-2; j >= 0; j--) {
+            tem = new ListNode();
+            ln.val = Integer.valueOf(sum.charAt(j));
+
+
         }
         return null;
     }
