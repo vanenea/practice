@@ -22,17 +22,24 @@ public class Leetcode {
      * Input: s = "abcabcbb"
      * Output: 3
      * Explanation: The answer is "abc", with the length of 3.
+     *
      * @param s
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-        if(s == null || s.length() == 0)
+        if (s == null || s.length() == 0)
             return 0;
-        int sum = 0;
-        for (int i = 0; i < s.length(); i++){
-          
+        int max = 0;
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
+            int j = 0;
+            if (map.containsKey(s.charAt(i))) {
+                j = Math.max(j, map.get(s.charAt(i)) + 1);
+            }
+            map.put(s.charAt(i), i);
+            max = Math.max(max, i - j + 1);
         }
-        return sum;
+        return max;
     }
 
 
@@ -67,7 +74,7 @@ public class Leetcode {
         }
         ListNode tem = null;
         for (int j = sum.length() - 2; j >= 0; j--) {
-            if(tem == null ){
+            if (tem == null) {
                 tem = new ListNode();
                 tem.val = Integer.valueOf(sum.charAt(j));
                 ln.next = tem;
