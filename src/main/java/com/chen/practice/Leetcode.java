@@ -34,7 +34,7 @@ public class Leetcode {
         for (int i = 0; i < s.length(); i++) {
             int j = 0;
             if (map.containsKey(s.charAt(i))) {
-                j = Math.max(j, map.get(s.charAt(i)) + 1);
+                j = map.get(s.charAt(i));
             }
             map.put(s.charAt(i), i);
             max = Math.max(max, i - j + 1);
