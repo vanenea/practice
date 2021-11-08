@@ -14,6 +14,28 @@ public class Leetcode {
         System.out.println(isPalindrome("race a car"));
     }
 
+
+    /**
+     * 3. Longest Substring Without Repeating Characters
+     * Given a string s, find the length of the longest substring without repeating characters.
+     * Example 1:
+     * Input: s = "abcabcbb"
+     * Output: 3
+     * Explanation: The answer is "abc", with the length of 3.
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring(String s) {
+        if(s == null || s.length() == 0)
+            return 0;
+        int sum = 0;
+        for (int i = 0; i < s.length(); i++){
+          
+        }
+        return sum;
+    }
+
+
     /**
      * 2. Add Two Numbers
      * Medium
@@ -40,17 +62,23 @@ public class Leetcode {
         }
         String sum = Integer.toString(sum1 + sum2);
         ListNode ln = new ListNode();
-        if(sum.length()>0){
-            ln.val = sum.charAt(sum.length()-1);
+        if (sum.length() > 0) {
+            ln.val = sum.charAt(sum.length() - 1);
         }
-        ListNode tem;
-        for (int j = sum.length()-2; j >= 0; j--) {
-            tem = new ListNode();
-            ln.val = Integer.valueOf(sum.charAt(j));
-
+        ListNode tem = null;
+        for (int j = sum.length() - 2; j >= 0; j--) {
+            if(tem == null ){
+                tem = new ListNode();
+                tem.val = Integer.valueOf(sum.charAt(j));
+                ln.next = tem;
+            } else {
+                tem.next = new ListNode();
+                tem.next.val = Integer.valueOf(sum.charAt(j));
+                tem = tem.next;
+            }
 
         }
-        return null;
+        return ln;
     }
 
     /**
