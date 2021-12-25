@@ -9,7 +9,7 @@
 	<modules>
 		<module>gateway</module>
 		<module>common</module>
-	</modules>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>demo</name>
