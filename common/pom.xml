@@ -11,57 +11,57 @@
     <artifactId>common</artifactId>
     <dependencies>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu1</groupId>
+            <artifactId>lu1</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/IKAnalyzer2012_FF.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu2</groupId>
+            <artifactId>lu2</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/log4j-1.2.15.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu3</groupId>
+            <artifactId>lu3</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/lucene-analyzers-common-5.5.4.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu4</groupId>
+            <artifactId>lu4</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/lucene-core-5.5.4.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu5</groupId>
+            <artifactId>lu5</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/lucene-highlighter-5.5.4.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu6</groupId>
+            <artifactId>lu6</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/lucene-memory-5.5.4.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu7</groupId>
+            <artifactId>lu7</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/lucene-queries-5.5.4.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>lu</groupId>
-            <artifactId>lu</artifactId>
+            <groupId>lu8</groupId>
+            <artifactId>lu8</artifactId>
             <version>2.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/mysql-connector-java-5.1.42-bin.jar</systemPath>
