@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/vue.js"></script>
+
+</head>
+<body >
+	<div id="vid">
+		<h1>{{message}}</h1>
+		
+		<hr>
+		
+		<div id="app-7">
+			<ol>
+			  <!--
+			    现在我们为每个 todo-item 提供 todo 对象
+			    todo 对象是变量，即其内容可以是动态的。
+			    我们也需要为每个组件提供一个“key”，稍后再
+			    作详细解释。
+			  -->
+			  <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+			  </todo-item>
+			</ol>
+		</div>
+		<div id="app-8">
+			<h2 v-on:click="test" v-for="item in groceryList">{{item.text}}</h2>
+		</div>
+		
+		<hr>
+		<in-post v-for="t in title" v-bind="t.title"></in-post>
+		<h3 v-for="j in title">{{j.title}}</h3>
+		
+		<hr>
+		<button @click="test()">click me</button>
+	</div>
+	<script type="text/javascript">
+		var titles = [
+			{title:"vue1"},
+			{title:"vue2"},
+			{title:"vue3"}
+		];
+		Vue.component("in-post",{
+			props:['title'],
+			template : "<h1>{{t.title}}</h1>"
+		})
+		var vm = new Vue({
+			el : "#vid",
+			data : {
+				message : "",
+				title :titles
+			},
+			methods:{
+				test: function(){
+					log();
+				},
+
+			}
+		
+		})
+		
+		function log(){
+			alert("123456");
+		}
+	</script>
+</body>
+</html>
