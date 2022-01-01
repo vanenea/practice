@@ -28,6 +28,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>gateway</finalName>
     </build>
 
 </project>
