@@ -12,6 +12,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,6 +21,8 @@ import javax.jms.Destination;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -36,6 +39,14 @@ public class Test {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+
+    @RequestMapping("test2")
+    @ResponseBody
+    public String test1(){
+        Map<String, Object> result = new HashMap<>();
+        result.put("aaa", "111ad");
+        return result.toString();
+    }
 
     @RequestMapping("/test1")
     public void test(HttpServletRequest request, HttpServletResponse response) {
@@ -186,4 +197,7 @@ public class Test {
 		String aaa = "1";
 		return aaa;
 	}
+
+
+
 }
