@@ -38,12 +38,13 @@ public class Tester {
             }
         };*/
         ScheduledExecutorService service1 = Executors.newSingleThreadScheduledExecutor();
-        ScheduledExecutorService service2 = Executors.newSingleThreadScheduledExecutor();
+
         //public ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit);
         //command--执行的任务,initialDelay--延迟开始,period--间隔时间,unit--时间单位
         /* service.scheduleAtFixedRate(runnable, 0, 5, TimeUnit.SECONDS); */
         System.out.println("当前线程00000: " + Thread.activeCount());
         for (int i = 0; i < 10; i++) {
+            ScheduledExecutorService service2 = Executors.newSingleThreadScheduledExecutor();
             service2.schedule(new Runnable() {
                 @Override
                 public void run() {
@@ -51,6 +52,7 @@ public class Tester {
 
                     try {
                         Thread.sleep(5000);
+                        service2.shutdown();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -73,9 +75,9 @@ public class Tester {
                 }
             }, 1, TimeUnit.SECONDS);
         }
-        service1.shutdown();
+
         try {
-            Thread.sleep(10000);
+            Thread.sleep(15000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
