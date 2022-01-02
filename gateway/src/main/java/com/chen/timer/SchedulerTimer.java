@@ -6,10 +6,10 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class SchedulerTimer {
 	
-	@Scheduled(cron = "0/2 * * * * *")  
+	@Scheduled(cron = "0 0/5 * * * *")
 	public void timer(){  
 	    //获取当前时间  
 	    LocalDateTime localDateTime =LocalDateTime.now();  
