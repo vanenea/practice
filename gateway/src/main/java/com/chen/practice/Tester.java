@@ -1,8 +1,6 @@
 package com.chen.practice;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -11,7 +9,18 @@ import com.alibaba.fastjson.JSONObject;
 public class Tester {
 
     public static void main(String[] args) throws Exception {
-        recursion();
+        timeTest();
+    }
+
+    public static void timeTest(){
+        Timer timer = new Timer();
+        System.out.println(new Date());
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(new Date());
+            }
+        }, 1000);
     }
 
     public static int i = 0;
