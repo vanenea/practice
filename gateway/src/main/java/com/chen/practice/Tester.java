@@ -1,10 +1,15 @@
 package com.chen.practice;
 
-import java.util.*;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
+import java.sql.SQLOutput;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Tester {
 
@@ -12,15 +17,69 @@ public class Tester {
         timeTest();
     }
 
-    public static void timeTest(){
-        Timer timer = new Timer();
+    public static void timeTest() {
+       /* Timer timer = new Timer();
         System.out.println(new Date());
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 System.out.println(new Date());
+
+                timer.cancel();
             }
         }, 1000);
+
+
+        Runnable runnable = new Runnable() {
+            public void run() {
+                // 把run方法里的内容换成你要执行的内容
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                System.out.println("当前的系统时间为：" + sdf.format(new Date()));
+            }
+        };*/
+        ScheduledExecutorService service1 = Executors.newSingleThreadScheduledExecutor();
+        ScheduledExecutorService service2 = Executors.newSingleThreadScheduledExecutor();
+        //public ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit);
+        //command--执行的任务,initialDelay--延迟开始,period--间隔时间,unit--时间单位
+        /* service.scheduleAtFixedRate(runnable, 0, 5, TimeUnit.SECONDS); */
+        System.out.println("当前线程00000: " + Thread.activeCount());
+        for (int i = 0; i < 10; i++) {
+            service2.schedule(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("当前线程: " + Thread.activeCount());
+
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, 5, TimeUnit.SECONDS);
+
+        }
+
+        for (int i = 0; i < 10; i++) {
+
+            service1.schedule(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("当前线程1: " + Thread.activeCount());
+                    /*try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }*/
+                }
+            }, 1, TimeUnit.SECONDS);
+        }
+        service1.shutdown();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("结束: " + Thread.activeCount());
     }
 
     public static int i = 0;
