@@ -4,7 +4,6 @@ import com.chen.domain.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
-import java.util.function.Function;
 
 public class DoSomething {
 
