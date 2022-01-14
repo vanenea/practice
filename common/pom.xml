@@ -66,5 +66,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/mysql-connector-java-5.1.42-bin.jar</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>oracle</groupId>
+            <artifactId>oracle</artifactId>
+            <version>6.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ojdbc6-11.2.0.4.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>
