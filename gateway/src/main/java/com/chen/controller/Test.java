@@ -40,7 +40,7 @@ public class Test {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    @RequestMapping("test2")
+    @RequestMapping(value = "/r/r1", produces = "text/plain;charset=UTF-8")
     @ResponseBody
     public String test1(){
         Map<String, Object> result = new HashMap<>();
