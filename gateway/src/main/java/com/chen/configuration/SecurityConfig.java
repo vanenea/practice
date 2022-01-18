@@ -7,8 +7,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -20,7 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @throws Exception
      */
     @Autowired
-
     public void config(AuthenticationManagerBuilder auth) throws Exception {
         // 在内存中配置用户，配置多个用户调用`and()`方法
         auth.inMemoryAuthentication()
@@ -28,6 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password(passwordEncoder().encode("123456")).authorities("r1")
                 .and()
                 .withUser("test").password(passwordEncoder().encode("123456")).roles("USER");
+    }
+    @Bean
+    public UserDetailsService userDetailsService(){
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(User.withUsername("zhangsan").password(passwordEncoder().encode("123")).authorities("p1").build());
+        manager.createUser(User.withUsername("lisi").password(passwordEncoder().encode("456")).authorities("p2").build());
+        return manager;
     }
 
     @Bean
