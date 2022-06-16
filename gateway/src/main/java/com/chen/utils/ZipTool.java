@@ -5,11 +5,10 @@ package com.chen.utils;
  */
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Enumeration;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -140,12 +139,57 @@ public class ZipTool {
         }
     }
 
+    public  static String unzip(String filePath,String zipDir) {
+        String name = "";
+        try {
+            BufferedOutputStream dest = null;
+            BufferedInputStream is = null;
+            ZipEntry entry;
+            ZipFile zipfile = new ZipFile(filePath);
 
+            Enumeration dir = zipfile.entries();
+            while (dir.hasMoreElements()){
+                entry = (ZipEntry) dir.nextElement();
+
+                if( entry.isDirectory()){
+                    name = entry.getName();
+                    name = name.substring(0, name.length() - 1);
+                    File fileObject = new File(zipDir + name);
+                    fileObject.mkdir();
+                }
+            }
+
+            Enumeration e = zipfile.entries();
+            while (e.hasMoreElements()) {
+                entry = (ZipEntry) e.nextElement();
+                if( entry.isDirectory()){
+                    continue;
+                }else{
+                    is = new BufferedInputStream(zipfile.getInputStream(entry));
+                    int count;
+                    byte[] dataByte = new byte[1024];
+                    FileOutputStream fos = new FileOutputStream(zipDir+entry.getName());
+                    dest = new BufferedOutputStream(fos, 1024);
+                    while ((count = is.read(dataByte, 0, 1024)) != -1) {
+                        dest.write(dataByte, 0, count);
+                    }
+                    dest.flush();
+                    dest.close();
+                    is.close();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  name;
+    }
 
     //测试
     public static void main(String[] args) {
         File f = new File("D:/test");
         new ZipTool(new File("D:/test1.zip")).zipFiles(f);
+
+        ZipTool.unzip("D:/test1.zip", "D:/test2");
     }
 
 }
