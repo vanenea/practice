@@ -141,10 +141,11 @@ public class ZipTool {
     }
 
 
+
     //测试
     public static void main(String[] args) {
-        File f = new File("E:/Study/Java");
-        new ZipTool(new File("D:/test", f.getName() + ".zip")).zipFiles(f);
+        File f = new File("D:/test");
+        new ZipTool(new File("D:/test1.zip")).zipFiles(f);
     }
 
 }
