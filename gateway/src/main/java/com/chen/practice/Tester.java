@@ -14,8 +14,26 @@ import java.util.concurrent.TimeUnit;
 public class Tester {
 
     public static void main(String[] args) throws Exception {
-        timeTest();
+        jsonTest();
+        
+
     }
+
+    public static void jsonTest(){
+        String aa = "123123213,8785957894";
+        String[] bb = aa.split(",");
+        JSONObject params = new JSONObject();
+        JSONArray ja = new JSONArray();
+        for (int i= 0; i<bb.length; i++) {
+            JSONObject jo = new JSONObject();
+            jo.put("pid", bb[i]);
+            ja.add(jo);
+        }
+        params.put("id", "123123213");
+        params.put("list", ja);
+        System.out.println(params.toJSONString());
+    }
+
 
     public static void timeTest() {
        /* Timer timer = new Timer();
