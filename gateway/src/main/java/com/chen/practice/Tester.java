@@ -1,5 +1,6 @@
 package com.chen.practice;
 
+import cn.hutool.core.lang.generator.SnowflakeGenerator;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -14,17 +15,23 @@ import java.util.concurrent.TimeUnit;
 public class Tester {
 
     public static void main(String[] args) throws Exception {
-        jsonTest();
-        
+        //jsonTest();
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(new SnowflakeGenerator().next());
+
+        }
+        Thread.sleep(1000);
+        System.out.println(new SnowflakeGenerator().next());
 
     }
 
-    public static void jsonTest(){
+    public static void jsonTest() {
         String aa = "123123213,8785957894";
         String[] bb = aa.split(",");
         JSONObject params = new JSONObject();
         JSONArray ja = new JSONArray();
-        for (int i= 0; i<bb.length; i++) {
+        for (int i = 0; i < bb.length; i++) {
             JSONObject jo = new JSONObject();
             jo.put("pid", bb[i]);
             ja.add(jo);
