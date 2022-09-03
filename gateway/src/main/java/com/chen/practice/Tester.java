@@ -1,6 +1,7 @@
 package com.chen.practice;
 
 import cn.hutool.core.lang.generator.SnowflakeGenerator;
+import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -16,13 +17,16 @@ public class Tester {
 
     public static void main(String[] args) throws Exception {
         //jsonTest();
-
+        IdUtil.getSnowflake(1);
+        System.out.println(IdUtil.getSnowflake());
         for (int i = 0; i < 10; i++) {
-            System.out.println(new SnowflakeGenerator().next());
-
+            System.out.println(IdUtil.getSnowflakeNextIdStr());
         }
-        Thread.sleep(1000);
-        System.out.println(new SnowflakeGenerator().next());
+        IdUtil.getSnowflake(2);
+        System.out.println(IdUtil.getSnowflake());
+        for (int i = 0; i < 10; i++) {
+            System.out.println(IdUtil.getSnowflakeNextIdStr());
+        }
 
     }
 
