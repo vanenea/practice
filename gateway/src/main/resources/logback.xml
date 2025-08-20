@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false">
+	<substitutionProperty name="LOG_HOME" value="./log" />
+	<substitutionProperty name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%X{traceId}|%thread|%-5level|%logger{50}|%replace(%msg){'^(.{10000}).*$', '$1'} %n" />
+	<!--<springProperty scope="context" name="LOG_NAME" source="spring.application.name"/>-->
+	<substitutionProperty name="LOG_NAME" value="demo" />
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/${LOG_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<maxHistory>60</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+               <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>  
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>${LOG_PATTERN}</Pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				${LOG_PATTERN}
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<conversionRule conversionWord="short" converterClass="com.csii.pe.common.logging.ShortLoggerConverter" />
+
+	<conversionRule conversionWord="count" converterClass="com.csii.pe.common.logging.CountingConverter" />
+	
+	<!--<logger name="org.apache.axis.encoding.ser" additivity="false">
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>-->
+
+	<logger name="org.springframework" additivity="false">
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="java.sql" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="org.apache.tomcat.jdbc">
+		<level value="warn" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="org.apache" level="info"></logger>
+	<logger name="org.apache.http.headers" level="OFF"></logger>
+	<logger name="httpclient" level="info"></logger>
+	<root>
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>
