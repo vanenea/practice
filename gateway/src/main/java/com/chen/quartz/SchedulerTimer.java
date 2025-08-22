@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SchedulerTimer {
 	
-	@Scheduled(cron = "0 0/5 * * * *")
+	@Scheduled(cron = "0 0/50 * * * *")
 	public void timer(){  
 	    //获取当前时间  
 	    LocalDateTime localDateTime =LocalDateTime.now();  
