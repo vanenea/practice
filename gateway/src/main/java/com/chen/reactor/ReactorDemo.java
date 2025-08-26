@@ -1,7 +1,5 @@
-package com.chen.controller;
+package com.chen.reactor;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
@@ -13,9 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@RestController
-@Slf4j
-public class TaskController {
+public class ReactorDemo {
+
 
     // 模拟数据库：使用线程安全的 List 存储数据
     private static final List<String> DATABASE = new CopyOnWriteArrayList<>();
