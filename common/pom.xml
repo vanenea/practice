@@ -89,10 +89,19 @@
             <artifactId>lombok</artifactId>
             <version>1.18.16</version>
         </dependency>
+        <!-- reactor -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
             <version>1.78.1</version>
         </dependency>
+        <!-- MinIO -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.7</version>
+        </dependency>
     </dependencies>
+
+
 </project>
