@@ -1,14 +1,10 @@
-###HelloWorld
+# practice 日常练习
 
-about practice
+### Prometheus + Grafana + Loki 组成一个完整的监控系统
 
-website
+👉 Prometheus 采集数据 → Grafana 展示数据 → Loki 收集日志并支持查看
 
-# created world
-###HelloWorld
-
-about practice
-
-`public static void main(){`
-
-    `test`
+端口
+- prometheus: 9001
+- grafana: 9002
+- loki: 9003

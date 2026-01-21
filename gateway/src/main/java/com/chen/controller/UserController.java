@@ -1,25 +1,20 @@
 package com.chen.controller;
 
-import java.util.List;
-
+import com.chen.domain.User;
+import com.chen.service.IUserService;
+import com.chen.utils.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.chen.domain.User;
-import com.chen.mapper.UserMapper;
-import com.chen.service.IUserService;
-import com.chen.utils.ResponseResult;
+import java.util.List;
 
 @Controller
 public class UserController {
-	@Autowired
+	/*@Autowired
 	private IUserService userService;
-	
-	@Autowired
-	private UserMapper userMapper;
 
 	@GetMapping("/angular")
 	public String angularTest() {
@@ -39,11 +34,11 @@ public class UserController {
 		System.out.println("插入数据");
 		return userService.insertUser(user);
 	}
-	/*static {
+	*//*static {
 		System.out.println("static>>>>>>>");
 		System.out.println(userMapper);
 	//	System.out.println(userMapper.findAll());
-	}*/
+	}*//*
 
 	
 	@RequestMapping("/showUser")
@@ -53,5 +48,5 @@ public class UserController {
 		List<User> list = userService.showUser();
 		ResponseResult<List<User>> result = new ResponseResult<List<User>>(1, "用户列表", list);
 		return result;
-	}
+	}*/
 }

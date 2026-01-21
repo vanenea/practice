@@ -13,7 +13,7 @@ import com.chen.service.IUserService;
 @Service("userService")
 public class UserSerivceImp implements IUserService {
 
-	@Resource
+	/*@Resource
 	private UserMapper userMapper;
 	
 	@Override
@@ -29,6 +29,6 @@ public class UserSerivceImp implements IUserService {
 	@Override
 	public List<User> showUser() {
 		return userMapper.showUser();
-	}
+	}*/
 
 }
